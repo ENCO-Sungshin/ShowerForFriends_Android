@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
-    Fragment timerFragment, bookmarkFragment, friendListFragment, rankFragment, mypageFragment, usageFragment;
+    Fragment timerFragment, bookmarkFragment, friendListFragment, rankFragment, mypageFragment, usageFragment, storelistFragment;
 
     // navigation bar 연결
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -29,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.action_store:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bookmarkFragment).commitAllowingStateLoss();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, storelistFragment).commitAllowingStateLoss();
                     return true;
 
                 case R.id.action_rank:
@@ -55,9 +55,9 @@ public class HomeActivity extends AppCompatActivity {
         // bottom navigation view 부분
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation_bottom);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
         timerFragment = new TimerFragment();
-        bookmarkFragment = new BookmarkFragment();
+        //bookmarkFragment = new BookmarkFragment();
+        storelistFragment = new StoreListFragment();
         //friendListFragment = new FriendListFragment();
         rankFragment = new RankFragment();
         mypageFragment = new MyPageFragment();

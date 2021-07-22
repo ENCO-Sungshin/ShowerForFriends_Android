@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +21,7 @@ public class MyPageFragment extends Fragment {
 
     ViewGroup viewGroup;
     Button changeButton;
+    ImageButton bookmarkButton;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -66,6 +69,15 @@ public class MyPageFragment extends Fragment {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_my_page, container, false);
 
         changeButton = (Button) viewGroup.findViewById(R.id.changebtn);
+        bookmarkButton = (ImageButton) viewGroup.findViewById(R.id.like_btn);
+
+        bookmarkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), BookmarkActivity.class);
+                startActivity(intent);
+            }
+        });
 
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
