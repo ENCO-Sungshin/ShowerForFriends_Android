@@ -89,11 +89,11 @@ public class StoreListFragment extends Fragment {
 
         // recyclerView
         storeListItems[0] = new StoreListItem("알맹상점", "껍데기는 가라 알맹이만 오라 리필 스테이션 '알맹상점'",
-                "서울시 마포구 월드컵로 49 2층", storeURI[0], R.drawable.store1, false, 0, 0);
+                "서울시 마포구 월드컵로 49 2층", storeURI[0], R.drawable.store1, false, 37.55368, 126.91160);
         storeListItems[1] = new StoreListItem("디어얼스", "일상에서 지구를 아끼고 사랑하는 편안한 라이프스타일 Dear.earth",
-                "서울시 서대문구 수색로 43 104호", storeURI[1], R.drawable.store2, false, 0, 0);
+                "서울시 서대문구 수색로 43 104호", storeURI[1], R.drawable.store2, false, 37.56979, 126.91335);
         storeListItems[2] = new StoreListItem("덕분愛", "지구를 향한 우리의 사랑과 노력 덕분에\n생명과 환경을 살리는 브랜드",
-                "서울시 서초구 서초대로 389 진흥상가 209호", storeURI[2], R.drawable.store1, false, 0, 0);
+                "서울시 서초구 서초대로 389 진흥상가 209호", storeURI[2], R.drawable.store1, false, 37.49705, 127.02375);
 
         for(int i=0; i<storeListItems.length; i++)
         {

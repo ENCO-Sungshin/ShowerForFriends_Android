@@ -26,6 +26,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a', 'x86_64'
+            universalApk true
+        }
+    }
 }
 
 repositories {
@@ -34,6 +43,8 @@ repositories {
 
 dependencies {
 
+    // kakao map
+    implementation files('libs\\libDaumMapAndroid.jar')
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -43,5 +54,4 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
 }

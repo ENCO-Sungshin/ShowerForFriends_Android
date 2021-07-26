@@ -42,7 +42,7 @@ public class StoreListItemAdapter extends RecyclerView.Adapter<StoreListItemAdap
             public void onClick(View view) {
                 if(storeListItem.getStoreBookmark() == true) {
                     storeListItem.setStoreBookmark(false);
-                    holder.storeBookmark.setText("🤍");
+                    holder.storeBookmark.setText("♡");
                 }
                 else {
                     storeListItem.setStoreBookmark(true);
@@ -63,8 +63,11 @@ public class StoreListItemAdapter extends RecyclerView.Adapter<StoreListItemAdap
             @Override
             public void onClick(View view) {
                 // map 연결하기
-               /* Intent mIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(storeListItem.getStoreURL()));
-                view.getContext().startActivity(mIntent);*/
+                Intent intent = new Intent(view.getContext(), ShowMapActivity.class);
+                intent.putExtra("position1", storeListItem.getPosition1());
+                intent.putExtra("position2", storeListItem.getPosition2());
+                intent.putExtra("store_name", storeListItem.getStoreName());
+                view.getContext().startActivity(intent);
             }
         });
 

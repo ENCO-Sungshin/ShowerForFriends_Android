@@ -5,11 +5,11 @@ public class StoreListItem {
     private String storeIntro;
     private String storeLocation;
     private String storeURL;
-    private int position1, position2;
+    private double position1, position2;
     private int storePicture;
     private boolean storeBookmark;
 
-    StoreListItem(String storeName, String storeIntro, String storeLocation, String storeURL, int storePicture, boolean storeBookmark, int position1, int position2)
+    StoreListItem(String storeName, String storeIntro, String storeLocation, String storeURL, int storePicture, boolean storeBookmark, double position1, double position2)
     {
         this.storeName = storeName;
         this.storeIntro = storeIntro;
@@ -39,10 +39,10 @@ public class StoreListItem {
     public boolean getStoreBookmark() {
         return storeBookmark;
     }
-    public int getPosition1() {
+    public double getPosition1() {
         return position1;
     }
-    public int getPosition2() {
+    public double getPosition2() {
         return position2;
     }
 
@@ -64,10 +64,10 @@ public class StoreListItem {
     public void setStoreBookmark(boolean storeBookmark) {
         this.storeBookmark = storeBookmark;
     }
-    public void setPosition1(int position1) {
+    public void setPosition1(double position1) {
         this.position1 = position1;
     }
-    public void setPosition2(int position2) {
+    public void setPosition2(double position2) {
         this.position2 = position2;
     }
 }
