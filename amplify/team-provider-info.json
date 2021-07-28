@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-showerforfriendsco-dev-215354-authRole",
+      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsco-dev-215354-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsco-dev-215354-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-showerforfriendsco-dev-215354-deployment",
+      "UnauthRoleName": "amplify-showerforfriendsco-dev-215354-unauthRole",
+      "StackName": "amplify-showerforfriendsco-dev-215354",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-showerforfriendsco-dev-215354/df8974c0-efa2-11eb-b034-02b5716184c2",
+      "AmplifyAppId": "d2txmjp4fv4ih7"
+    }
+  }
+}
