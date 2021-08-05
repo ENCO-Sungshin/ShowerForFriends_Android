@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-encoshower-dev-174005-authRole",
+      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-encoshower-dev-174005-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-encoshower-dev-174005-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-encoshower-dev-174005-deployment",
+      "UnauthRoleName": "amplify-encoshower-dev-174005-unauthRole",
+      "StackName": "amplify-encoshower-dev-174005",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-encoshower-dev-174005/68e65930-f436-11eb-a105-06a501574012",
+      "AmplifyAppId": "d3kqhmpm7bhww8"
+    },
+    "categories": {
+      "auth": {
+        "encoshower48c5290e": {}
+      }
+    }
+  }
+}

@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:id="@+id/action_timer"
-        android:icon="@drawable/timer"
+        android:icon="@drawable/menu_timer"
         android:title="@string/action_timer"
-        android:visible="true" />
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_usage"
-        android:icon="@drawable/stat"
-        android:title="@string/action_statistics" />
+        android:icon="@drawable/menu_stat"
+        android:title="@string/action_statistics"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_rank"
-        android:icon="@drawable/rank"
-        android:title="@string/action_rank" />
+        android:icon="@drawable/menu_rank"
+        android:title="@string/action_rank"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_store"
-        android:icon="@drawable/store"
-        android:title="@string/action_store" />
+        android:icon="@drawable/menu_store"
+        android:title="@string/action_store"
+        app:showAsAction="always" />
     <item
         android:id="@+id/action_my"
-        android:icon="@drawable/setting"
-        android:title="@string/action_my" />
+        android:icon="@drawable/menu_setting"
+        android:title="@string/action_my"
+        app:showAsAction="always" />
 </menu>

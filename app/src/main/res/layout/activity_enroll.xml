@@ -137,7 +137,8 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/button_color_drawable"
-                    android:text="@string/checkUserInfo_btn" />
+                    android:text="@string/checkUserInfo_btn"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 

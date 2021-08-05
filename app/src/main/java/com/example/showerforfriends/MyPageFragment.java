@@ -12,6 +12,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.UserStateDetails;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MyPageFragment#newInstance} factory method to
@@ -22,6 +26,8 @@ public class MyPageFragment extends Fragment {
     ViewGroup viewGroup;
     Button changeButton;
     ImageButton bookmarkButton;
+    Button logoutButton;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -70,6 +76,26 @@ public class MyPageFragment extends Fragment {
 
         changeButton = (Button) viewGroup.findViewById(R.id.changebtn);
         bookmarkButton = (ImageButton) viewGroup.findViewById(R.id.like_btn);
+        logoutButton = (Button) viewGroup.findViewById(R.id.logout_btn);
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AWSMobileClient.getInstance().initialize(getContext(), new Callback<UserStateDetails>() {
+                    @Override
+                    public void onResult(UserStateDetails userStateDetails) {
+                        // 로그아웃 후 로그인 창으로 이동
+                        AWSMobileClient.getInstance().signOut();
+                        Intent i = new Intent(getContext(), LoginActivity.class);
+                        startActivity(i);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                    }
+                });
+            }
+        });
 
         bookmarkButton.setOnClickListener(new View.OnClickListener() {
             @Override
