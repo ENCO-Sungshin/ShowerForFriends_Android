@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "encoshower48c5290e": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
