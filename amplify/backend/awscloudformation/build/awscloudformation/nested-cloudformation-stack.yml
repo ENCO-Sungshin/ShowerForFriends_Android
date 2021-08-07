@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "Root Stack for AWS Amplify CLI",
+  "Description": "Root Stack for AWS Amplify Console",
   "Parameters": {
     "DeploymentBucketName": {
       "Description": "Name of the common deployment bucket provided by the parent stack",
@@ -77,13 +77,34 @@
         }
       }
     },
+    "APIGatewayAuthStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+        "Parameters": {
+          "authRoleName": {
+            "Ref": "AuthRoleName"
+          },
+          "unauthRoleName": {
+            "Ref": "UnauthRoleName"
+          },
+          "env": "dev",
+          "showerforfriendsapis": {
+            "Fn::GetAtt": [
+              "apishowerforfriendsapis",
+              "Outputs.ApiId"
+            ]
+          }
+        }
+      }
+    },
     "authtestapplication3a1d80146": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
         "TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/auth/testapplication3a1d80146-cloudformation-template.yml",
         "Parameters": {
           "identityPoolName": "testapplication3a1d80146_identitypool_a1d80146",
-          "allowUnauthenticatedIdentities": false,
+          "allowUnauthenticatedIdentities": true,
           "resourceNameTruncated": "testapa1d80146",
           "userPoolName": "testapplication3a1d80146_userpool_a1d80146",
           "autoVerifiedAttributes": "email",
@@ -124,6 +145,38 @@
           "serviceName": "Cognito",
           "usernameCaseSensitive": false,
           "dependsOn": "",
+          "env": "dev"
+        }
+      }
+    },
+    "functionputUserData": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/function/putUserData-cloudformation-template.json",
+        "Parameters": {
+          "deploymentBucketName": "amplify-testapplication3-dev-150608-deployment",
+          "s3Key": "amplify-builds/putUserData-31442b543654625a7556-build.zip",
+          "env": "dev"
+        }
+      }
+    },
+    "apishowerforfriendsapis": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/api/showerforfriendsapis-cloudformation-template.json",
+        "Parameters": {
+          "functionputUserDataName": {
+            "Fn::GetAtt": [
+              "functionputUserData",
+              "Outputs.Name"
+            ]
+          },
+          "functionputUserDataArn": {
+            "Fn::GetAtt": [
+              "functionputUserData",
+              "Outputs.Arn"
+            ]
+          },
           "env": "dev"
         }
       }

@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "testapplication3a1d80146": {}
+      },
+      "function": {
+        "putUserData": {
+          "deploymentBucketName": "amplify-testapplication3-dev-150608-deployment",
+          "s3Key": "amplify-builds/putUserData-31442b543654625a7556-build.zip"
+        }
       }
     }
   }

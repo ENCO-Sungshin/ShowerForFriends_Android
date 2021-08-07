@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.AuthUserAttributeKey;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn = (Button)findViewById(R.id.register_button);
 
         try {
+            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, EnrollActivity.class);
+                Intent i = new Intent(MainActivity.this, SigninActivity.class);
                 startActivity(i);
                 finish();
             }

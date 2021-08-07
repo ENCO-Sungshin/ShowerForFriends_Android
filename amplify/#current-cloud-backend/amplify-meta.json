@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-testapplication3-dev-150608-unauthRole",
       "StackName": "amplify-testapplication3-dev-150608",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-testapplication3-dev-150608/90e89da0-f745-11eb-93f7-0a8fc78ad0c8",
-      "AmplifyAppId": "d3td0twq03j0ge"
+      "AmplifyAppId": "d3td0twq03j0ge",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     }
   },
   "auth": {
@@ -22,7 +23,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/auth/testapplication3a1d80146-cloudformation-template.yml",
         "logicalId": "authtestapplication3a1d80146"
       },
-      "lastPushTimeStamp": "2021-08-07T06:19:05.495Z",
+      "lastPushTimeStamp": "2021-08-07T11:09:09.620Z",
       "output": {
         "UserPoolId": "ap-northeast-2_iZk24Vi84",
         "AppClientIDWeb": "10u645gkqsr904p40ev4o4q487",
@@ -32,7 +33,61 @@
         "IdentityPoolName": "testapplication3a1d80146_identitypool_a1d80146__dev",
         "UserPoolName": "testapplication3a1d80146_userpool_a1d80146"
       },
-      "lastPushDirHash": "FK1HOtnlCI1fQIOyHWDLU6/BPu0="
+      "lastPushDirHash": "gpG/bnu4w9YOpcO1pmunjfW33u8="
+    }
+  },
+  "function": {
+    "putUserData": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-08-07T11:06:34.903Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-08-07T11:06:37.286Z",
+      "distZipFilename": "putUserData-31442b543654625a7556-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-testapplication3-dev-150608-deployment",
+        "s3Key": "amplify-builds/putUserData-31442b543654625a7556-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/function/putUserData-cloudformation-template.json",
+        "logicalId": "functionputUserData"
+      },
+      "lastPushTimeStamp": "2021-08-07T11:09:09.620Z",
+      "output": {
+        "Region": "ap-northeast-2",
+        "Arn": "arn:aws:lambda:ap-northeast-2:366488870532:function:putUserData-dev",
+        "Name": "putUserData-dev",
+        "LambdaExecutionRole": "testapplication3LambdaRole470d58b3-dev"
+      },
+      "lastPushDirHash": "NC2SzJlBwxEMdqagZlHba9ftYZI="
+    }
+  },
+  "api": {
+    "showerforfriendsapis": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "putUserData",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/api/showerforfriendsapis-cloudformation-template.json",
+        "logicalId": "apishowerforfriendsapis"
+      },
+      "lastPushTimeStamp": "2021-08-07T11:09:09.620Z",
+      "output": {
+        "ApiName": "showerforfriendsapis",
+        "RootUrl": "https://cfsntopkhk.execute-api.ap-northeast-2.amazonaws.com/dev",
+        "ApiId": "cfsntopkhk"
+      },
+      "lastPushDirHash": "BcoIsCmv3FezSlx0nfwB7exunoA="
     }
   }
 }

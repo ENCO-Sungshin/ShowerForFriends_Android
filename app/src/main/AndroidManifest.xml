@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".EnrollActivity"/>
         <activity android:name=".ConfirmSignUpActivity"/>
+        <activity android:name=".SigninActivity"/>
+        <activity android:name=".HomeActivity"/>
     </application>
 
 </manifest>

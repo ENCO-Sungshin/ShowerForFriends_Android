@@ -1,0 +1,49 @@
+{
+  "paths": [
+    {
+      "name": "/profile",
+      "lambdaFunction": "putUserData",
+      "privacy": {
+        "protected": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ],
+        "unauth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/profile"
+    }
+  ],
+  "resourceName": "showerforfriendsapis",
+  "apiName": "showerforfriendsapis",
+  "functionArns": [
+    {
+      "lambdaFunction": "putUserData"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 1,
+    "authRoleName": "amplify-testapplication3-dev-150608-authRole",
+    "unAuthRoleName": "amplify-testapplication3-dev-150608-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "putUserData",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

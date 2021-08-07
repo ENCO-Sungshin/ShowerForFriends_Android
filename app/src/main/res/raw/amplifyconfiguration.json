@@ -1,6 +1,18 @@
 {
     "UserAgent": "aws-amplify-cli/2.0",
     "Version": "1.0",
+    "api": {
+        "plugins": {
+            "awsAPIPlugin": {
+                "showerforfriendsapis": {
+                    "endpointType": "REST",
+                    "endpoint": "https://cfsntopkhk.execute-api.ap-northeast-2.amazonaws.com/dev",
+                    "region": "ap-northeast-2",
+                    "authorizationType": "AWS_IAM"
+                }
+            }
+        }
+    },
     "auth": {
         "plugins": {
             "awsCognitoAuthPlugin": {
