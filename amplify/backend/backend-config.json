@@ -1,6 +1,6 @@
 {
   "auth": {
-    "encoshower48c5290e": {
+    "testapplication3a1d80146": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

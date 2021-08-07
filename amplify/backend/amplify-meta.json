@@ -1,38 +1,38 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-encoshower-dev-174005-authRole",
-      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-encoshower-dev-174005-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-encoshower-dev-174005-authRole",
+      "AuthRoleName": "amplify-testapplication3-dev-150608-authRole",
+      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-testapplication3-dev-150608-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-testapplication3-dev-150608-authRole",
       "Region": "ap-northeast-2",
-      "DeploymentBucketName": "amplify-encoshower-dev-174005-deployment",
-      "UnauthRoleName": "amplify-encoshower-dev-174005-unauthRole",
-      "StackName": "amplify-encoshower-dev-174005",
-      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-encoshower-dev-174005/68e65930-f436-11eb-a105-06a501574012",
-      "AmplifyAppId": "d3kqhmpm7bhww8"
+      "DeploymentBucketName": "amplify-testapplication3-dev-150608-deployment",
+      "UnauthRoleName": "amplify-testapplication3-dev-150608-unauthRole",
+      "StackName": "amplify-testapplication3-dev-150608",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-testapplication3-dev-150608/90e89da0-f745-11eb-93f7-0a8fc78ad0c8",
+      "AmplifyAppId": "d3td0twq03j0ge"
     }
   },
   "auth": {
-    "encoshower48c5290e": {
+    "testapplication3a1d80146": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-encoshower-dev-174005-deployment/amplify-cfn-templates/auth/encoshower48c5290e-cloudformation-template.yml",
-        "logicalId": "authencoshower48c5290e"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/auth/testapplication3a1d80146-cloudformation-template.yml",
+        "logicalId": "authtestapplication3a1d80146"
       },
-      "lastPushTimeStamp": "2021-08-03T08:57:19.629Z",
+      "lastPushTimeStamp": "2021-08-07T06:19:05.495Z",
       "output": {
-        "UserPoolId": "ap-northeast-2_MhSGUzz0H",
-        "AppClientIDWeb": "5ibbqqgjaedb0g2r1d7p84p3t1",
-        "AppClientID": "4vgv7v1fpopdvnv4nmjk368kdu",
-        "IdentityPoolId": "ap-northeast-2:68d6856e-a80c-4c15-8711-650a9b564776",
-        "UserPoolArn": "arn:aws:cognito-idp:ap-northeast-2:366488870532:userpool/ap-northeast-2_MhSGUzz0H",
-        "IdentityPoolName": "encoshower48c5290e_identitypool_48c5290e__dev",
-        "UserPoolName": "encoshower48c5290e_userpool_48c5290e"
+        "UserPoolId": "ap-northeast-2_iZk24Vi84",
+        "AppClientIDWeb": "10u645gkqsr904p40ev4o4q487",
+        "AppClientID": "1r0v212s335muoqvflpaj25l6v",
+        "IdentityPoolId": "ap-northeast-2:1d08f4a7-a889-4f29-96a1-cf06124768e0",
+        "UserPoolArn": "arn:aws:cognito-idp:ap-northeast-2:366488870532:userpool/ap-northeast-2_iZk24Vi84",
+        "IdentityPoolName": "testapplication3a1d80146_identitypool_a1d80146__dev",
+        "UserPoolName": "testapplication3a1d80146_userpool_a1d80146"
       },
-      "lastPushDirHash": "JCUKKxOStPOb+h/16HlP+xMyH9E="
+      "lastPushDirHash": "FK1HOtnlCI1fQIOyHWDLU6/BPu0="
     }
   }
 }

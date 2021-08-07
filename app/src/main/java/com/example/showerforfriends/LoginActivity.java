@@ -22,6 +22,9 @@ import com.amazonaws.mobile.client.UserStateDetails;
 import com.amazonaws.mobile.client.results.SignInResult;
 import com.amazonaws.mobile.client.results.SignUpResult;
 import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
+import com.amplifyframework.AmplifyException;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.core.Amplify;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -46,8 +49,17 @@ public class LoginActivity extends AppCompatActivity {
         home_btn = (Button) findViewById(R.id.home_btn);
         loginButton = (Button) findViewById(R.id.loginButton);
 
+        //..
+        try {
+            Amplify.addPlugin(new AWSCognitoAuthPlugin());
+            Amplify.configure(getApplicationContext());
+            Log.i("MyAmplifyApp", "Initialized Amplify");
+        } catch (AmplifyException error) {
+            Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
+        }
+
         //자동 로그인
-        AWSMobileClient.getInstance().initialize(LoginActivity.this, new Callback<UserStateDetails>() {
+        /*AWSMobileClient.getInstance().initialize(LoginActivity.this, new Callback<UserStateDetails>() {
             @Override
             public void onResult(UserStateDetails userStateDetails) {
                 Log.i(TAG, userStateDetails.getUserState().toString());
@@ -64,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onError(Exception e) {
                 Log.e(TAG, e.toString());
             }
-        });
+        });*/
 
         enrollButton_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +111,19 @@ public class LoginActivity extends AppCompatActivity {
         EditText login_pw = findViewById(R.id.login_password);
         String username = login_id.getText().toString();
         String password = login_pw.getText().toString();
-        AWSMobileClient.getInstance().signIn(username, password, null, new Callback<SignInResult>() {
+        Amplify.Auth.signIn(
+                username,
+                password,
+                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+                error -> Log.e("AuthQuickstart", error.toString())
+        );
+
+        Toast.makeText(getApplicationContext(), "Sign-in done.", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+        startActivity(i);
+        finish();
+
+       /* AWSMobileClient.getInstance().signIn(username, password, null, new Callback<SignInResult>() {
             @Override
             public void onResult(final SignInResult signInResult) {
                 runOnUiThread(new Runnable() {
@@ -131,7 +155,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onError(Exception e) {
                 Log.e(TAG, "Sign-in error", e);
             }
-        });
+        });*/
     }
 
     /*private void getHashKey()
@@ -153,6 +177,48 @@ public class LoginActivity extends AppCompatActivity {
             } catch (NoSuchAlgorithmException e) {
                 Log.e("KeyHash", "Unable to get MessageDigest. signature=" + signature, e);
             }
+        }
+    }*/
+
+    // 앱 종료할 때 사용
+    private long time = 0;
+    Toast toast;
+
+    // 핸드폰 자체 뒤로가기 버튼 눌러 앱 종료
+    @Override
+    public void onBackPressed()
+    {
+        if(System.currentTimeMillis() - time > 2000)
+        {
+            time = System.currentTimeMillis();
+            toast = Toast.makeText(this, "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if(System.currentTimeMillis() - time <= 2000)
+        {
+            finishAffinity();
+            toast.cancel();
+        }
+    }
+
+    /*// 뒤로가기 2번 눌러야 종료
+    private final long FINISH_INTERVAL_TIME = 1000;
+    private long backPressedTime = 0;
+    @Override
+    public void onBackPressed() {
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        // 뒤로 가기 할 경우 SignActivity 화면으로 이동
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+        {
+            finish();
+        }
+        else
+        {
+            backPressedTime = tempTime;
+            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
     }*/
 }

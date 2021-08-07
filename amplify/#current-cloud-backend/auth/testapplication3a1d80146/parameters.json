@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "encoshower48c5290e_identitypool_48c5290e",
+    "identityPoolName": "testapplication3a1d80146_identitypool_a1d80146",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "encosh48c5290e",
-    "userPoolName": "encoshower48c5290e_userpool_48c5290e",
+    "resourceNameTruncated": "testapa1d80146",
+    "userPoolName": "testapplication3a1d80146_userpool_a1d80146",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -21,7 +21,7 @@
         "email"
     ],
     "aliasAttributes": [
-        "email"
+        "preferred_username"
     ],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "encosh48c5290e_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "testapa1d80146_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "48c5290e",
-    "resourceName": "encoshower48c5290e",
+    "sharedId": "a1d80146",
+    "resourceName": "testapplication3a1d80146",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [

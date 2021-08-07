@@ -11,10 +11,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.UserStateDetails;
+import com.amplifyframework.core.Amplify;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +31,7 @@ public class MyPageFragment extends Fragment {
     Button changeButton;
     ImageButton bookmarkButton;
     Button logoutButton;
+    TextView user_name;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,6 +82,8 @@ public class MyPageFragment extends Fragment {
         changeButton = (Button) viewGroup.findViewById(R.id.changebtn);
         bookmarkButton = (ImageButton) viewGroup.findViewById(R.id.like_btn);
         logoutButton = (Button) viewGroup.findViewById(R.id.logout_btn);
+        user_name = (TextView) viewGroup.findViewById(R.id.user_name);
+
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

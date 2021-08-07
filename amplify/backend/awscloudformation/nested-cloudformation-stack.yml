@@ -68,15 +68,15 @@
         }
       }
     },
-    "authencoshower48c5290e": {
+    "authtestapplication3a1d80146": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-encoshower-dev-174005-deployment/amplify-cfn-templates/auth/encoshower48c5290e-cloudformation-template.yml",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/auth/testapplication3a1d80146-cloudformation-template.yml",
         "Parameters": {
-          "identityPoolName": "encoshower48c5290e_identitypool_48c5290e",
+          "identityPoolName": "testapplication3a1d80146_identitypool_a1d80146",
           "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "encosh48c5290e",
-          "userPoolName": "encoshower48c5290e_userpool_48c5290e",
+          "resourceNameTruncated": "testapa1d80146",
+          "userPoolName": "testapplication3a1d80146_userpool_a1d80146",
           "autoVerifiedAttributes": "email",
           "mfaConfiguration": "OFF",
           "mfaTypes": "SMS Text Message",
@@ -88,15 +88,15 @@
           "passwordPolicyMinLength": 8,
           "passwordPolicyCharacters": "",
           "requiredAttributes": "email",
-          "aliasAttributes": "email",
+          "aliasAttributes": "preferred_username",
           "userpoolClientGenerateSecret": false,
           "userpoolClientRefreshTokenValidity": 30,
           "userpoolClientWriteAttributes": "email",
           "userpoolClientReadAttributes": "email",
-          "userpoolClientLambdaRole": "encosh48c5290e_userpoolclient_lambda_role",
+          "userpoolClientLambdaRole": "testapa1d80146_userpoolclient_lambda_role",
           "userpoolClientSetAttributes": false,
-          "sharedId": "48c5290e",
-          "resourceName": "encoshower48c5290e",
+          "sharedId": "a1d80146",
+          "resourceName": "testapplication3a1d80146",
           "authSelections": "identityPoolAndUserPool",
           "authRoleArn": {
             "Fn::GetAtt": [
@@ -123,7 +123,7 @@
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authencoshower48c5290e"
+        "authtestapplication3a1d80146"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -183,7 +183,7 @@
         },
         "Handler": "index.handler",
         "Runtime": "nodejs12.x",
-        "Timeout": "300",
+        "Timeout": 300,
         "Role": {
           "Fn::GetAtt": [
             "UpdateRolesWithIDPFunctionRole",
@@ -206,7 +206,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authencoshower48c5290e",
+            "authtestapplication3a1d80146",
             "Outputs.IdentityPoolId"
           ]
         },

@@ -20,6 +20,9 @@ import com.amazonaws.mobile.client.results.SignInResult;
 import com.amazonaws.mobile.client.results.SignUpResult;
 import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHandler;
+import com.amplifyframework.auth.AuthUserAttributeKey;
+import com.amplifyframework.auth.options.AuthSignUpOptions;
+import com.amplifyframework.core.Amplify;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,11 +54,20 @@ public class EnrollActivity extends AppCompatActivity {
         enroll_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
                 signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
                 //signUp(putEmailID_enroll.getText().toString(), putPassword_enroll.getText().toString());
             }
         });
+
+        /*enroll_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               // Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
+                signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
+                //signUp(putEmailID_enroll.getText().toString(), putPassword_enroll.getText().toString());
+            }
+        });*/
 
         // 액션바에 뒤로가기 버튼 추가하고 누르면 홈화면으로 돌아가기
         setSupportActionBar(toolbar);
@@ -63,7 +75,7 @@ public class EnrollActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
-    public void signUp(String username, String password, String email) {
+    /*public void signUp(String username, String password, String email) {
 
         final Map<String, String> attributes = new HashMap<>();
         attributes.put("email", email);
@@ -84,7 +96,7 @@ public class EnrollActivity extends AppCompatActivity {
 
                             // 이메일에 문제가 없으면 인증 코드 창으로 이동
                             Intent i = new Intent(EnrollActivity.this, ConfirmSignUpActivity.class);
-                            i.putExtra("email", email/*username*/); // username을 인증 코드 창에서 사용하기 위해
+                            i.putExtra("email", email*//*username*//*); // username을 인증 코드 창에서 사용하기 위해
                             startActivity(i);
                             finish();
                         } else {
@@ -106,6 +118,27 @@ public class EnrollActivity extends AppCompatActivity {
                 });
             }
         });
+    }*/
+
+    public void signUp(String username, String password, String email) {
+        Intent intent;
+        //Register a user
+        AuthSignUpOptions options = AuthSignUpOptions.builder()
+                .userAttribute(AuthUserAttributeKey.email(), email)
+                .build();
+        Amplify.Auth.signUp(username, password, options,
+                result -> Log.i("AuthQuickStart", "Result: " + result.toString()),
+                error -> Log.e("AuthQuickStart", "Sign up failed", error)
+        );
+
+        Toast.makeText(getApplicationContext(), "인증 메일을 보냈습니다." , Toast.LENGTH_SHORT).show();
+
+        // 이메일에 문제가 없으면 인증 코드 창으로 이동
+        Intent i = new Intent(EnrollActivity.this, ConfirmSignUpActivity.class);
+        i.putExtra("username", username); // username을 인증 코드 창에서 사용하기 위해
+        i.putExtra("email",email);
+        startActivity(i);
+        finish();
     }
 
     // 액션바에 뒤로가기 버튼 추가하고 누르면 홈화면으로 돌아가기
@@ -121,7 +154,8 @@ public class EnrollActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // 뒤로가기 2번 눌러야 종료
+
+    /*// 뒤로가기 2번 눌러야 종료
     private final long FINISH_INTERVAL_TIME = 1000;
     private long backPressedTime = 0;
 
@@ -133,8 +167,8 @@ public class EnrollActivity extends AppCompatActivity {
         // 뒤로 가기 할 경우 SignActivity 화면으로 이동
         if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
         {
-            /*Intent i = new Intent(EnrollActivity.this, EnrollActivity.class);
-            startActivity(i);*/
+            *//*Intent i = new Intent(EnrollActivity.this, EnrollActivity.class);
+            startActivity(i);*//*
             finish();
         }
         else
@@ -142,5 +176,5 @@ public class EnrollActivity extends AppCompatActivity {
             backPressedTime = tempTime;
             Toast.makeText(getApplicationContext(), "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 }

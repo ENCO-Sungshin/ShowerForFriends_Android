@@ -17,11 +17,13 @@ import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.results.SignInResult;
 import com.amazonaws.mobile.client.results.SignUpResult;
 import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
+import com.amplifyframework.core.Amplify;
 
 public class ConfirmSignUpActivity extends AppCompatActivity {
 
     String TAG = ConfirmSignUpActivity.class.getSimpleName();
-    String username, userPassword;
+    String username, email;
+    /*String username, userPassword;*/
     EditText confirmTxt;
     Button confirm_btn;
 
@@ -37,13 +39,15 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
         TextView TextView = findViewById(R.id.signUpUsername2);
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        username = bundle.getString("email");
+        username = bundle.getString("username");
+        email = bundle.getString("email");
+        /*username = bundle.getString("email");*/
         TextView.setText(username);
 
-        confirm_btn.setOnClickListener(new View.OnClickListener() {
+       /* confirm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               /* EditText*/ confirmTxt = findViewById(R.id.confirmTxt);
+               *//* EditText*//* confirmTxt = findViewById(R.id.confirmTxt);
                 String code = confirmTxt.getText().toString();
 
                 AWSMobileClient.getInstance().confirmSignUp(username, code, new Callback<SignUpResult>() {
@@ -78,18 +82,54 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                         Log.e(TAG, "Confirm sign-up error", e);
                     }
                 });
-                /*if(confirmTxt.getText() != null)
+                *//*if(confirmTxt.getText() != null)
                 {
                     confirmSignUp(confirmTxt.getText().toString());
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "인증번호를 입력해주세요.", Toast.LENGTH_SHORT);
-                }*/
+                }*//*
+            }
+        });*/
+
+
+        confirm_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /* EditText*/
+                confirmTxt = findViewById(R.id.confirmTxt);
+                String code = confirmTxt.getText().toString();
+
+                /*Amplify.Auth.confirmSignUp(
+                        username,
+                        code,
+                        result -> Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete"),
+                        error -> Log.e("AuthQuickstart", error.toString())
+                );*/
+
+                if(confirmTxt.getText() != null)
+                {
+                    Amplify.Auth.confirmSignUp(
+                            username,
+                            code,
+                            result -> Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete"),
+                            error -> Log.e("AuthQuickstart", error.toString())
+                    );
+
+                    Toast.makeText(getApplicationContext(),"성공적으로 회원가입 되셨습니다..", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
+                    startActivity(i);
+                    finish();
+
+                    /*confirmSignUp(confirmTxt.getText().toString());*/
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "인증번호를 입력해주세요.", Toast.LENGTH_SHORT);
+                }
             }
         });
-
-
 
     }
 /*
@@ -162,7 +202,7 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
         });
     }*/
 
-    // 뒤로가기 2번 눌러야 종료
+    /*// 뒤로가기 2번 눌러야 종료
     private final long FINISH_INTERVAL_TIME = 1000;
     private long backPressedTime = 0;
 
@@ -183,5 +223,5 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
             backPressedTime = tempTime;
             Toast.makeText(getApplicationContext(), "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
         }
-    }
+    }*/
 }
