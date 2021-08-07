@@ -1,0 +1,5 @@
+{
+    "tableName": "WaterUsage",
+    "partitionKeyName": "waterUsage_id",
+    "partitionKeyType": "N"
+}
