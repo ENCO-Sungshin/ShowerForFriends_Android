@@ -1,5 +1,7 @@
 package com.example.showerforfriends;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,7 +37,7 @@ public class EnrollActivity extends AppCompatActivity {
     String userName;
     String userEmail;
     String userPassword;
-    EditText putName_enroll, putEmailID_enroll, putPassword_enroll;
+    EditText putName_enroll, putNickname_enroll, putEmailID_enroll, putPassword_enroll, putCheckPW_enroll;
     Button enroll_Btn;
 
     @Override
@@ -48,15 +50,36 @@ public class EnrollActivity extends AppCompatActivity {
         putName_enroll = (EditText) findViewById(R.id.putName_enroll);
         putEmailID_enroll = (EditText) findViewById(R.id.putEmailID_enroll);
         putPassword_enroll = (EditText) findViewById(R.id.putPassword_enroll);
-
+        putNickname_enroll = (EditText) findViewById(R.id.putNickname_enroll);
+        putCheckPW_enroll = (EditText) findViewById(R.id.putCheckPW_enroll);
         enroll_Btn = (Button) findViewById(R.id.enroll_Btn);
 
         enroll_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
-                signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
-                //signUp(putEmailID_enroll.getText().toString(), putPassword_enroll.getText().toString());
+
+                if(putName_enroll.getText() != null && putEmailID_enroll.getText() != null && putPassword_enroll.getText() != null && putNickname_enroll.getText() != null && putCheckPW_enroll.getText() != null) {// Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
+                    if(putPassword_enroll.getText() != putCheckPW_enroll.getText()) {
+                        Toast.makeText(EnrollActivity.this, "비밀번호 확인 입력이 잘못되었습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
+                        /*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                        builder.setTitle("비밀번호 확인").setMessage("비밀번호 확인이 잘못되었습니다. 확인하세요.");
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();*/
+                    }
+                    else {
+                        signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
+                    }
+                    //signUp(putEmailID_enroll.getText().toString(), putPassword_enroll.getText().toString());
+                }
+                else
+                {
+                    Toast.makeText(EnrollActivity.this, "모든 항목이 채워져있지 않습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
+
+                    /*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                    builder.setTitle("회원가입").setMessage("모든 항목이 채워져있지 않습니다. 확인하세요.");
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();*/
+                }
             }
         });
 
@@ -148,12 +171,36 @@ public class EnrollActivity extends AppCompatActivity {
         switch(item.getItemId())
         {
             case android.R.id.home:
+                toast = Toast.makeText(this, "회원가입이 취소됩니다.", Toast.LENGTH_SHORT);
                 finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+
+    // 앱 종료할 때 사용
+    private long time = 0;
+    Toast toast;
+
+    // 핸드폰 자체 뒤로가기 버튼 눌러 앱 종료
+    @Override
+    public void onBackPressed()
+    {
+        if(System.currentTimeMillis() - time > 2000)
+        {
+            time = System.currentTimeMillis();
+            toast = Toast.makeText(this, "한번 더 누르시면 회원가입이 취소됩니다.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if(System.currentTimeMillis() - time <= 2000)
+        {
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            //finishAffinity();
+            toast.cancel();
+        }
+    }
 
     /*// 뒤로가기 2번 눌러야 종료
     private final long FINISH_INTERVAL_TIME = 1000;

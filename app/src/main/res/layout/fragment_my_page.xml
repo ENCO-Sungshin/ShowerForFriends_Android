@@ -26,7 +26,7 @@
                 android:src="@drawable/person2" />
 
             <Space
-                android:layout_width="435dp"
+                android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:layout_weight="1" />
 
@@ -77,6 +77,7 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:text="홍길동"
+                        android:textColor="#0000a0"
                         android:textSize="25sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -107,6 +108,17 @@
                         android:layout_weight="1"
                         android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/userinfo_txt"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="* 처음 값은 예시 값입니다. 본인 값으로 설정해주세요. *"
+                            android:textAlignment="center"
+                            android:textColor="#00498c"
+                            android:textSize="10sp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -120,6 +132,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:text="머리 기장 : "
+                                android:textAlignment="textEnd"
                                 android:textSize="18sp" />
 
                             <TextView
@@ -128,6 +141,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="어깨 아래 ~ 가슴 위"
+                                android:textAlignment="center"
                                 android:textSize="19sp" />
                         </LinearLayout>
 
@@ -144,6 +158,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:text="머리 숱 : "
+                                android:textAlignment="textEnd"
                                 android:textSize="18sp" />
 
                             <TextView
@@ -152,6 +167,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="많음"
+                                android:textAlignment="center"
                                 android:textSize="19sp" />
                         </LinearLayout>
 
@@ -168,6 +184,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="2"
                                 android:text="신장 : "
+                                android:textAlignment="textEnd"
                                 android:textSize="18sp" />
 
                             <TextView
@@ -176,6 +193,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="168cm"
+                                android:textAlignment="center"
                                 android:textSize="19sp" />
                         </LinearLayout>
 
