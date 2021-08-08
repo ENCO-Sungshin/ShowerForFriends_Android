@@ -47,7 +47,7 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
        /* confirm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               *//* EditText*//* confirmTxt = findViewById(R.id.confirmTxt);
+               EditText confirmTxt = findViewById(R.id.confirmTxt);
                 String code = confirmTxt.getText().toString();
 
                 AWSMobileClient.getInstance().confirmSignUp(username, code, new Callback<SignUpResult>() {
@@ -82,14 +82,15 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                         Log.e(TAG, "Confirm sign-up error", e);
                     }
                 });
-                *//*if(confirmTxt.getText() != null)
+                */
+        /*if(confirmTxt.getText() != null)
                 {
                     confirmSignUp(confirmTxt.getText().toString());
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "인증번호를 입력해주세요.", Toast.LENGTH_SHORT);
-                }*//*
+                }
             }
         });*/
 
@@ -101,14 +102,11 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                 confirmTxt = findViewById(R.id.confirmTxt);
                 String code = confirmTxt.getText().toString();
 
-                /*Amplify.Auth.confirmSignUp(
-                        username,
-                        code,
-                        result -> Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete"),
-                        error -> Log.e("AuthQuickstart", error.toString())
-                );*/
-
-                if(confirmTxt.getText() != null)
+                if(confirmTxt.getText().toString().equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "인증번호를 입력해주세요.", Toast.LENGTH_SHORT);
+                }
+                else
                 {
                     Amplify.Auth.confirmSignUp(
                             username,
@@ -123,10 +121,6 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                     finish();
 
                     /*confirmSignUp(confirmTxt.getText().toString());*/
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "인증번호를 입력해주세요.", Toast.LENGTH_SHORT);
                 }
             }
         });

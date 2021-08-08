@@ -1,6 +1,6 @@
 {
   "auth": {
-    "testapplication3a1d80146": {
+    "showerforfriendsapp0d96dd98": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],

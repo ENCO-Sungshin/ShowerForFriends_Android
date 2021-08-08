@@ -1,38 +1,38 @@
 {
   "providers": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-testapplication3-dev-150608-authRole",
-      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-testapplication3-dev-150608-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-testapplication3-dev-150608-authRole",
+      "AuthRoleName": "amplify-showerforfriendsapp-dev-214132-authRole",
+      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-214132-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-214132-authRole",
       "Region": "ap-northeast-2",
-      "DeploymentBucketName": "amplify-testapplication3-dev-150608-deployment",
-      "UnauthRoleName": "amplify-testapplication3-dev-150608-unauthRole",
-      "StackName": "amplify-testapplication3-dev-150608",
-      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-testapplication3-dev-150608/90e89da0-f745-11eb-93f7-0a8fc78ad0c8",
-      "AmplifyAppId": "d3td0twq03j0ge"
+      "DeploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+      "UnauthRoleName": "amplify-showerforfriendsapp-dev-214132-unauthRole",
+      "StackName": "amplify-showerforfriendsapp-dev-214132",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-showerforfriendsapp-dev-214132/f7f4f5b0-f845-11eb-8e26-06f3b199d122",
+      "AmplifyAppId": "dpmceispf3xvn"
     }
   },
   "auth": {
-    "testapplication3a1d80146": {
+    "showerforfriendsapp0d96dd98": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false,
       "providerMetadata": {
-        "s3TemplateURL": "https://s3.amazonaws.com/amplify-testapplication3-dev-150608-deployment/amplify-cfn-templates/auth/testapplication3a1d80146-cloudformation-template.yml",
-        "logicalId": "authtestapplication3a1d80146"
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/auth/showerforfriendsapp0d96dd98-cloudformation-template.yml",
+        "logicalId": "authshowerforfriendsapp0d96dd98"
       },
-      "lastPushTimeStamp": "2021-08-07T06:19:05.495Z",
+      "lastPushTimeStamp": "2021-08-08T12:46:14.469Z",
       "output": {
-        "UserPoolId": "ap-northeast-2_iZk24Vi84",
-        "AppClientIDWeb": "10u645gkqsr904p40ev4o4q487",
-        "AppClientID": "1r0v212s335muoqvflpaj25l6v",
-        "IdentityPoolId": "ap-northeast-2:1d08f4a7-a889-4f29-96a1-cf06124768e0",
-        "UserPoolArn": "arn:aws:cognito-idp:ap-northeast-2:366488870532:userpool/ap-northeast-2_iZk24Vi84",
-        "IdentityPoolName": "testapplication3a1d80146_identitypool_a1d80146__dev",
-        "UserPoolName": "testapplication3a1d80146_userpool_a1d80146"
+        "UserPoolId": "ap-northeast-2_yHKfTnZ0q",
+        "AppClientIDWeb": "7r4psafmg7uir48rutf2trnvpb",
+        "AppClientID": "6mtlgnkef0phlggo49h9pufj5c",
+        "IdentityPoolId": "ap-northeast-2:3459331d-4768-4559-b3ac-7576f01bf3a3",
+        "UserPoolArn": "arn:aws:cognito-idp:ap-northeast-2:366488870532:userpool/ap-northeast-2_yHKfTnZ0q",
+        "IdentityPoolName": "showerforfriendsapp0d96dd98_identitypool_0d96dd98__dev",
+        "UserPoolName": "showerforfriendsapp0d96dd98_userpool_0d96dd98"
       },
-      "lastPushDirHash": "FK1HOtnlCI1fQIOyHWDLU6/BPu0="
+      "lastPushDirHash": "NfoHfr/9DtuuwBKSJYnH7rAeho0="
     }
   }
 }

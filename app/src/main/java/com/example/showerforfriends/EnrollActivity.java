@@ -58,13 +58,28 @@ public class EnrollActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(putName_enroll.getText() != null && putEmailID_enroll.getText() != null && putPassword_enroll.getText() != null && putNickname_enroll.getText() != null && putCheckPW_enroll.getText() != null) {// Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
+                if(putName_enroll.getText().toString().equals("") || putEmailID_enroll.getText().toString().equals("") || putPassword_enroll.getText().toString().equals("")
+                        || putNickname_enroll.getText().toString().equals("") || putCheckPW_enroll.getText().toString().equals("")) {
+                    Toast.makeText(EnrollActivity.this, "모든 항목이 채워져있지 않습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    if(putPassword_enroll.getText().toString().equals(putCheckPW_enroll.getText().toString())
+                            && putCheckPW_enroll.getText().toString().equals(putPassword_enroll.getText().toString())) {
+                        signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
+                    }
+                    else {
+                        Toast.makeText(EnrollActivity.this, "비밀번호 확인 입력이 잘못되었습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+               /* if(putName_enroll.getText() != null && putEmailID_enroll.getText() != null && putPassword_enroll.getText() != null && putNickname_enroll.getText() != null && putCheckPW_enroll.getText() != null) {// Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
                     if(putPassword_enroll.getText() != putCheckPW_enroll.getText()) {
                         Toast.makeText(EnrollActivity.this, "비밀번호 확인 입력이 잘못되었습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
-                        /*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                        *//*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
                         builder.setTitle("비밀번호 확인").setMessage("비밀번호 확인이 잘못되었습니다. 확인하세요.");
                         AlertDialog alertDialog = builder.create();
-                        alertDialog.show();*/
+                        alertDialog.show();*//*
                     }
                     else {
                         signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
@@ -75,11 +90,11 @@ public class EnrollActivity extends AppCompatActivity {
                 {
                     Toast.makeText(EnrollActivity.this, "모든 항목이 채워져있지 않습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
 
-                    /*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+                    *//*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
                     builder.setTitle("회원가입").setMessage("모든 항목이 채워져있지 않습니다. 확인하세요.");
                     AlertDialog alertDialog = builder.create();
-                    alertDialog.show();*/
-                }
+                    alertDialog.show();*//*
+                }*/
             }
         });
 
