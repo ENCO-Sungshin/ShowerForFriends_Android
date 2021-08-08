@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -74,6 +75,27 @@ public class HomeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, timerFragment).commit();
     }
 
+    // 앱 종료할 때 사용
+    private long time = 0;
+    Toast toast;
+
+    // 핸드폰 자체 뒤로가기 버튼 눌러 앱 종료
+    @Override
+    public void onBackPressed()
+    {
+        if(System.currentTimeMillis() - time > 2000)
+        {
+            time = System.currentTimeMillis();
+            toast = Toast.makeText(this, "한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if(System.currentTimeMillis() - time <= 2000)
+        {
+            finishAffinity();
+            toast.cancel();
+        }
+    }
      /*public void replaceFragment(int index) {
         if(index == 0)
             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, friendListFragment).commit();

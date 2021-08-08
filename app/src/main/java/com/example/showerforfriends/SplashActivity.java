@@ -15,7 +15,6 @@ public class SplashActivity extends AppCompatActivity {
     Intent intent;
     private void _initCognito() {
         // Add code here
-        // 여기서 오류가 난다...하하하하
         if (AWSMobileClient.getInstance().getConfiguration() == null){
             // Initialize user
             AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {

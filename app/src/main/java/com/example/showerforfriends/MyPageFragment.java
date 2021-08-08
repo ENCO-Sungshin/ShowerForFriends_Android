@@ -84,6 +84,7 @@ public class MyPageFragment extends Fragment {
         logoutButton = (Button) viewGroup.findViewById(R.id.logout_btn);
         user_name = (TextView) viewGroup.findViewById(R.id.user_name);
 
+        user_name.setText(AWSMobileClient.getInstance().getUsername());
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
