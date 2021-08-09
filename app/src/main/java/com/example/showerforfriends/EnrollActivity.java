@@ -73,90 +73,14 @@ public class EnrollActivity extends AppCompatActivity {
                     }
                 }
 
-               /* if(putName_enroll.getText() != null && putEmailID_enroll.getText() != null && putPassword_enroll.getText() != null && putNickname_enroll.getText() != null && putCheckPW_enroll.getText() != null) {// Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
-                    if(putPassword_enroll.getText() != putCheckPW_enroll.getText()) {
-                        Toast.makeText(EnrollActivity.this, "비밀번호 확인 입력이 잘못되었습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
-                        *//*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                        builder.setTitle("비밀번호 확인").setMessage("비밀번호 확인이 잘못되었습니다. 확인하세요.");
-                        AlertDialog alertDialog = builder.create();
-                        alertDialog.show();*//*
-                    }
-                    else {
-                        signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
-                    }
-                    //signUp(putEmailID_enroll.getText().toString(), putPassword_enroll.getText().toString());
-                }
-                else
-                {
-                    Toast.makeText(EnrollActivity.this, "모든 항목이 채워져있지 않습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
-
-                    *//*AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                    builder.setTitle("회원가입").setMessage("모든 항목이 채워져있지 않습니다. 확인하세요.");
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();*//*
-                }*/
             }
         });
-
-        /*enroll_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               // Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
-                signUp(putName_enroll.getText().toString(), putPassword_enroll.getText().toString(), putEmailID_enroll.getText().toString());
-                //signUp(putEmailID_enroll.getText().toString(), putPassword_enroll.getText().toString());
-            }
-        });*/
 
         // 액션바에 뒤로가기 버튼 추가하고 누르면 홈화면으로 돌아가기
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
-    /*public void signUp(String username, String password, String email) {
-
-        final Map<String, String> attributes = new HashMap<>();
-        attributes.put("email", email);
-        attributes.put("gender", "female");
-        attributes.put("locale", "seoul");
-        attributes.put("nickname", username);
-
-        AWSMobileClient.getInstance().signUp(username, password, attributes, null, new Callback<SignUpResult>() {
-            @Override
-            public void onResult(final SignUpResult signUpResult) {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d(TAG, "Sign-up callback state: " + signUpResult.getConfirmationState());
-                        if (!signUpResult.getConfirmationState()) {
-                            final UserCodeDeliveryDetails details = signUpResult.getUserCodeDeliveryDetails();
-                            Toast.makeText(getApplicationContext(), "인증 메일을 보냈습니다.: " + details.getDestination(), Toast.LENGTH_SHORT).show();
-
-                            // 이메일에 문제가 없으면 인증 코드 창으로 이동
-                            Intent i = new Intent(EnrollActivity.this, ConfirmSignUpActivity.class);
-                            i.putExtra("email", email*//*username*//*); // username을 인증 코드 창에서 사용하기 위해
-                            startActivity(i);
-                            finish();
-                        } else {
-                            //makeToast("Sign-up done.");
-                            Log.i(TAG, "balls2");
-                        }
-                    }
-                });
-            }
-
-
-            @Override
-            public void onError(Exception e) {
-                Log.e(TAG, "Sign-up error", e);
-                runOnUiThread(() -> {
-                    if (e instanceof AmazonServiceException)
-                        Toast.makeText(EnrollActivity.this, ((AmazonServiceException) e).getErrorMessage(), Toast.LENGTH_SHORT).show();
-                    //System.out.println(((AmazonServiceException) e).getErrorMessage());
-                });
-            }
-        });
-    }*/
 
     public void signUp(String username, String password, String email) {
         Intent intent;

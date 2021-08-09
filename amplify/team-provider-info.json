@@ -14,6 +14,16 @@
     "categories": {
       "auth": {
         "showerforfriendsapp0d96dd98": {}
+      },
+      "function": {
+        "putUsersLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+          "s3Key": "amplify-builds/putUsersLambda-7a79564f453771443677-build.zip"
+        },
+        "powerDisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+          "s3Key": "amplify-builds/powerDisplayLambda-4973356f51687557426d-build.zip"
+        }
       }
     }
   }

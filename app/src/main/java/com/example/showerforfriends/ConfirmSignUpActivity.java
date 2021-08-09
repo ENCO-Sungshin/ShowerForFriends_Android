@@ -17,6 +17,7 @@ import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.results.SignInResult;
 import com.amazonaws.mobile.client.results.SignUpResult;
 import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
+import com.amplifyframework.api.rest.RestOptions;
 import com.amplifyframework.core.Amplify;
 
 public class ConfirmSignUpActivity extends AppCompatActivity {
@@ -41,59 +42,7 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         username = bundle.getString("username");
         email = bundle.getString("email");
-        /*username = bundle.getString("email");*/
         TextView.setText(username);
-
-       /* confirm_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               EditText confirmTxt = findViewById(R.id.confirmTxt);
-                String code = confirmTxt.getText().toString();
-
-                AWSMobileClient.getInstance().confirmSignUp(username, code, new Callback<SignUpResult>() {
-                    @Override
-                    public void onResult(final SignUpResult signUpResult) {
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
-                                Log.d(TAG, "Sign-up callback state: " + signUpResult.getConfirmationState());
-                                if (!signUpResult.getConfirmationState()) {
-                                    final UserCodeDeliveryDetails details = signUpResult.getUserCodeDeliveryDetails();
-
-                                    Toast.makeText(getApplicationContext(), "Confirm sign-up with: " + details.getDestination(), Toast.LENGTH_SHORT).show();
-
-
-                                } else {
-
-                                    // 회원가입이 완료되면 로그인 창으로 이동
-                                    Toast.makeText(getApplicationContext(),"성공적으로 회원가입 되셨습니다..", Toast.LENGTH_SHORT).show();
-                                    Intent i = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
-                                    startActivity(i);
-                                    finish();
-
-                                }
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onError(Exception e) {
-                        Log.e(TAG, "Confirm sign-up error", e);
-                    }
-                });
-                */
-        /*if(confirmTxt.getText() != null)
-                {
-                    confirmSignUp(confirmTxt.getText().toString());
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "인증번호를 입력해주세요.", Toast.LENGTH_SHORT);
-                }
-            }
-        });*/
-
 
         confirm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,10 +57,27 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Amplify.Auth.confirmSignUp(
+                    Amplify.Auth.confirmSignUp(//이메일 인증이 완료된다면 username으로 회원가입
                             username,
                             code,
-                            result -> Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete"),
+                            result ->
+                            {
+                                Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");
+                                //put user data
+                                String userinfo="{"+
+                                        "\"user_id\":"+"\""+"0"+"\","
+                                        +"\"user_name\":"+"\""+username+"\","
+                                        +"\"user_email\":"+"\""+email+"\""
+                                        +"}";
+                                RestOptions options = RestOptions.builder()
+                                        .addPath("/users")
+                                        .addBody(userinfo.getBytes())
+                                        .build();
+                                Amplify.API.post(options,
+                                        response -> Log.i("MyAmplifyApp", "POST succeeded: " + response),
+                                        error -> Log.e("MyAmplifyApp", "POST failed.", error)
+                                );
+                            },
                             error -> Log.e("AuthQuickstart", error.toString())
                     );
 

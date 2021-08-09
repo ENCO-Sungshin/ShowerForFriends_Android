@@ -23,6 +23,8 @@ import com.amazonaws.mobile.client.results.SignInResult;
 import com.amazonaws.mobile.client.results.SignUpResult;
 import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
 import com.amplifyframework.AmplifyException;
+import com.amplifyframework.api.aws.AWSApiPlugin;
+import com.amplifyframework.api.rest.RestOptions;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
 import com.amplifyframework.core.Amplify;
 
@@ -51,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //..
         try {
+            Amplify.addPlugin(new AWSApiPlugin());
             Amplify.addPlugin(new AWSCognitoAuthPlugin());
             Amplify.configure(getApplicationContext());
             Log.i("MyAmplifyApp", "Initialized Amplify");
@@ -117,6 +120,8 @@ public class LoginActivity extends AppCompatActivity {
                 result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
                 error -> Log.e("AuthQuickstart", error.toString())
         );
+
+
 
         Toast.makeText(getApplicationContext(), "Sign-in done.", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
