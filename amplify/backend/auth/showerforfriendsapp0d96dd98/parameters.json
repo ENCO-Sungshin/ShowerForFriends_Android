@@ -1,6 +1,6 @@
 {
     "identityPoolName": "showerforfriendsapp0d96dd98_identitypool_0d96dd98",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "shower0d96dd98",
     "userPoolName": "showerforfriendsapp0d96dd98_userpool_0d96dd98",
     "autoVerifiedAttributes": [

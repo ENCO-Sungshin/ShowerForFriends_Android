@@ -2,10 +2,14 @@ package com.example.showerforfriends;
 
 import androidx.fragment.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.amplifyframework.api.rest.RestOptions;
+import com.amplifyframework.core.Amplify;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,6 +58,19 @@ public class TimerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String userinfo="{"+
+                "\"user_id\":"+"\""+Amplify.Auth.getCurrentUser().getUserId()+"\""
+                +"}";
+        RestOptions options = RestOptions.builder()
+                .addPath("/mydisplay")
+                .addBody(userinfo.getBytes())
+                .build();
+        Amplify.API.post(options,
+                response -> Log.i("MyAmplifyApp", "POST succeeded: " + response),
+                error -> Log.e("MyAmplifyApp", "POST failed.", error)
+        );
+        Log.i("CurrentUser",Amplify.Auth.getCurrentUser().getUsername());
+        Log.i("CurrentUser",Amplify.Auth.getCurrentUser().getUserId());
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

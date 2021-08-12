@@ -25,7 +25,9 @@ import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.api.rest.RestOptions;
+import com.amplifyframework.auth.AuthUser;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.core.Amplify;
 
 import java.security.MessageDigest;
@@ -50,16 +52,6 @@ public class LoginActivity extends AppCompatActivity {
         enrollButton_login = (TextView) findViewById(R.id.enrollButton_login);
         home_btn = (Button) findViewById(R.id.home_btn);
         loginButton = (Button) findViewById(R.id.loginButton);
-
-        //..
-        try {
-            Amplify.addPlugin(new AWSApiPlugin());
-            Amplify.addPlugin(new AWSCognitoAuthPlugin());
-            Amplify.configure(getApplicationContext());
-            Log.i("MyAmplifyApp", "Initialized Amplify");
-        } catch (AmplifyException error) {
-            Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
-        }
 
         //자동 로그인
         /*AWSMobileClient.getInstance().initialize(LoginActivity.this, new Callback<UserStateDetails>() {
@@ -114,14 +106,35 @@ public class LoginActivity extends AppCompatActivity {
         EditText login_pw = findViewById(R.id.login_password);
         String username = login_id.getText().toString();
         String password = login_pw.getText().toString();
+
         Amplify.Auth.signIn(
                 username,
                 password,
-                result -> Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete"),
+                result -> {
+                    Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
+                },
                 error -> Log.e("AuthQuickstart", error.toString())
         );
 
-
+//        Amplify.Auth.fetchUserAttributes(
+//                attributes -> Log.i("AuthDemo", "User attributes = " + Amplify.Auth.getCurrentUser().getUserId()),
+//                error -> Log.e("AuthDemo", "Failed to fetch user attributes.", error)
+//        );
+//        Amplify.Auth.fetchAuthSession(
+//                result -> {
+//                    AWSCognitoAuthSession cognitoAuthSession = (AWSCognitoAuthSession) result;
+//                    switch(cognitoAuthSession.getIdentityId().getType()) {
+//                        case SUCCESS:
+//                            Log.i("AuthQuickStart", "IdentityId: " + cognitoAuthSession.getIdentityId().getValue());
+//                            Log.i("AuthQuickStart", "Credentials: " + cognitoAuthSession.getAWSCredentials().getValue().toString());
+//                            Log.i("AuthQuickStart", "IdentityId toString: " +cognitoAuthSession.getIdentityId().getValue().toString());
+//                            break;
+//                        case FAILURE:
+//                            Log.i("AuthQuickStart", "IdentityId not present because: " + cognitoAuthSession.getIdentityId().getError().toString());
+//                    }
+//                },
+//                error -> Log.e("AuthQuickStart", error.toString())
+//        );
 
         Toast.makeText(getApplicationContext(), "Sign-in done.", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(LoginActivity.this, HomeActivity.class);

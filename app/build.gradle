@@ -47,12 +47,16 @@ dependencies {
     implementation files('libs\\libDaumMapAndroid.jar')
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 
-    // aws appsync
-    implementation 'com.amplifyframework:core:1.0.0'
-    implementation 'com.amplifyframework:aws-datastore:1.0.0'
-    implementation 'com.amplifyframework:aws-api:1.0.0'
-    implementation 'com.amplifyframework:aws-predictions:1.0.0'
-    implementation 'com.amplifyframework:aws-auth-cognito:1.0.0'
+    // aws amplify
+    //implementation 'com.amplifyframework:core:1.0.0'
+    //implementation 'com.amplifyframework:aws-api:1.0.0'
+    // implementation 'com.amplifyframework:aws-auth-cognito:1.0.0'
+    implementation 'com.amplifyframework:core:1.24.0'
+    implementation 'com.amplifyframework:aws-datastore:1.24.0'
+    implementation 'com.amplifyframework:aws-api:1.24.0'
+    implementation 'com.amplifyframework:aws-predictions:1.24.0'
+    implementation 'com.amplifyframework:aws-auth-cognito:1.24.0'
+
     /*// Mobile Client for initializing the SDK
     implementation 'com.amazonaws:aws-android-sdk-mobile-client:2.8.+@aar'
     // Cognito UserPools for SignIn

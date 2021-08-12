@@ -49,6 +49,12 @@
           ]
         }
       ]
+    },
+    "getMyDisplayLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": []
     }
   },
   "api": {
@@ -67,6 +73,14 @@
         {
           "category": "function",
           "resourceName": "powerDisplayLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "getMyDisplayLambda",
           "attributes": [
             "Name",
             "Arn"

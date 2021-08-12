@@ -23,6 +23,10 @@
         "powerDisplayLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
           "s3Key": "amplify-builds/powerDisplayLambda-4973356f51687557426d-build.zip"
+        },
+        "getMyDisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+          "s3Key": "amplify-builds/getMyDisplayLambda-424c56514b762b777743-build.zip"
         }
       }
     }

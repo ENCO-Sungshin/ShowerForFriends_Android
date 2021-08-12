@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-showerforfriendsapp-dev-214132-unauthRole",
       "StackName": "amplify-showerforfriendsapp-dev-214132",
       "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-showerforfriendsapp-dev-214132/f7f4f5b0-f845-11eb-8e26-06f3b199d122",
-      "AmplifyAppId": "dpmceispf3xvn"
+      "AmplifyAppId": "dpmceispf3xvn",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     }
   },
   "auth": {
@@ -22,7 +23,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/auth/showerforfriendsapp0d96dd98-cloudformation-template.yml",
         "logicalId": "authshowerforfriendsapp0d96dd98"
       },
-      "lastPushTimeStamp": "2021-08-08T18:46:22.867Z",
+      "lastPushTimeStamp": "2021-08-11T11:50:54.857Z",
       "output": {
         "UserPoolId": "ap-northeast-2_yHKfTnZ0q",
         "AppClientIDWeb": "7r4psafmg7uir48rutf2trnvpb",
@@ -32,7 +33,7 @@
         "IdentityPoolName": "showerforfriendsapp0d96dd98_identitypool_0d96dd98__dev",
         "UserPoolName": "showerforfriendsapp0d96dd98_userpool_0d96dd98"
       },
-      "lastPushDirHash": "NfoHfr/9DtuuwBKSJYnH7rAeho0="
+      "lastPushDirHash": "w0d6+gaVzjb1z+jikLIOU+IcgYU="
     }
   },
   "storage": {
@@ -43,7 +44,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/storage/UserTable-cloudformation-template.json",
         "logicalId": "storageUserTable"
       },
-      "lastPushTimeStamp": "2021-08-08T18:46:22.872Z",
+      "lastPushTimeStamp": "2021-08-11T11:50:54.860Z",
       "output": {
         "PartitionKeyName": "user_id",
         "Region": "ap-northeast-2",
@@ -61,7 +62,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/storage/DisplayTable-cloudformation-template.json",
         "logicalId": "storageDisplayTable"
       },
-      "lastPushTimeStamp": "2021-08-08T18:46:22.878Z",
+      "lastPushTimeStamp": "2021-08-11T11:50:54.863Z",
       "output": {
         "PartitionKeyName": "display_id",
         "Region": "ap-northeast-2",
@@ -89,7 +90,7 @@
           ]
         }
       ],
-      "lastPushTimeStamp": "2021-08-08T18:46:22.885Z",
+      "lastPushTimeStamp": "2021-08-11T13:16:59.206Z",
       "lastBuildTimeStamp": "2021-08-08T15:22:12.600Z",
       "lastBuildType": "PROD",
       "lastPackageTimeStamp": "2021-08-08T15:22:12.630Z",
@@ -125,7 +126,7 @@
           ]
         }
       ],
-      "lastPushTimeStamp": "2021-08-08T18:46:22.892Z",
+      "lastPushTimeStamp": "2021-08-11T11:50:54.871Z",
       "lastBuildTimeStamp": "2021-08-08T18:39:57.864Z",
       "lastBuildType": "PROD",
       "lastPackageTimeStamp": "2021-08-08T18:39:57.886Z",
@@ -145,6 +146,32 @@
         "LambdaExecutionRole": "showerforfriendsappLambdaRolecf2386ee-dev"
       },
       "lastPushDirHash": "pBFBTanLIsnCbEO9RjdGO8tCNwM="
+    },
+    "getMyDisplayLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [],
+      "lastBuildTimeStamp": "2021-08-11T11:47:51.901Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2021-08-11T11:47:51.979Z",
+      "distZipFilename": "getMyDisplayLambda-424c56514b762b777743-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+        "s3Key": "amplify-builds/getMyDisplayLambda-424c56514b762b777743-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/function/getMyDisplayLambda-cloudformation-template.json",
+        "logicalId": "functiongetMyDisplayLambda"
+      },
+      "lastPushTimeStamp": "2021-08-11T11:50:54.891Z",
+      "output": {
+        "Region": "ap-northeast-2",
+        "Arn": "arn:aws:lambda:ap-northeast-2:366488870532:function:getMyDisplayLambda-dev",
+        "Name": "getMyDisplayLambda-dev",
+        "LambdaExecutionRole": "showerforfriendsappLambdaRole0cb57676-dev"
+      },
+      "lastPushDirHash": "FJzv80YxjhW+jBZT8XBOnQ1pVxk="
     }
   },
   "api": {
@@ -167,19 +194,27 @@
             "Name",
             "Arn"
           ]
+        },
+        {
+          "category": "function",
+          "resourceName": "getMyDisplayLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
         }
       ],
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/api/showerforfriendsapis-cloudformation-template.json",
         "logicalId": "apishowerforfriendsapis"
       },
-      "lastPushTimeStamp": "2021-08-08T18:46:22.916Z",
+      "lastPushTimeStamp": "2021-08-11T11:50:54.891Z",
       "output": {
         "ApiName": "showerforfriendsapis",
         "RootUrl": "https://bmetn566j3.execute-api.ap-northeast-2.amazonaws.com/dev",
         "ApiId": "bmetn566j3"
       },
-      "lastPushDirHash": "RRfBKRuDNiZQ3+bGvFh0tJp9nFI="
+      "lastPushDirHash": "ZtEee2GcfoR8ll34dKcT4reeFXg="
     }
   }
 }

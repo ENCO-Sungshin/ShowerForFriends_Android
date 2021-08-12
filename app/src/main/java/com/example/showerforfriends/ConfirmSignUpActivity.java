@@ -20,6 +20,9 @@ import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
 import com.amplifyframework.api.rest.RestOptions;
 import com.amplifyframework.core.Amplify;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ConfirmSignUpActivity extends AppCompatActivity {
 
     String TAG = ConfirmSignUpActivity.class.getSimpleName();
@@ -65,7 +68,7 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                                 Log.i("AuthQuickstart", result.isSignUpComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");
                                 //put user data
                                 String userinfo="{"+
-                                        "\"user_id\":"+"\""+"0"+"\","
+                                        "\"user_id\":"+"\""+Amplify.Auth.getCurrentUser().getUserId()+"\","
                                         +"\"user_name\":"+"\""+username+"\","
                                         +"\"user_email\":"+"\""+email+"\""
                                         +"}";
