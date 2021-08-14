@@ -1,0 +1,117 @@
+{
+    "paths": [
+        {
+            "name": "/users",
+            "lambdaFunction": "putUsersLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/users"
+        },
+        {
+            "name": "/display",
+            "lambdaFunction": "powerDisplayLambda",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/display"
+        },
+        {
+            "name": "/mydisplay",
+            "lambdaFunction": "getMyDisplayLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/mydisplay"
+        },
+        {
+            "name": "/user",
+            "lambdaFunction": "putUsersDataLambda",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/GET"
+                ]
+            },
+            "policyResourceName": "/user"
+        }
+    ],
+    "resourceName": "showerforfriendsapis",
+    "apiName": "showerforfriendsapis",
+    "functionArns": [
+        {
+            "lambdaFunction": "putUsersLambda"
+        },
+        {
+            "lambdaFunction": "powerDisplayLambda"
+        },
+        {
+            "lambdaFunction": "getMyDisplayLambda"
+        },
+        {
+            "lambdaFunction": "putUsersDataLambda"
+        }
+    ],
+    "privacy": {
+        "auth": 2,
+        "unauth": 2,
+        "authRoleName": "amplify-showerforfriendsapp-dev-214132-authRole",
+        "unAuthRoleName": "amplify-showerforfriendsapp-dev-214132-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "putUsersLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "powerDisplayLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "getMyDisplayLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "putUsersDataLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "6a48a6b4"
+}

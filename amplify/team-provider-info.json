@@ -1,0 +1,39 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-showerforfriendsapp-dev-214132-authRole",
+      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-214132-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-214132-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+      "UnauthRoleName": "amplify-showerforfriendsapp-dev-214132-unauthRole",
+      "StackName": "amplify-showerforfriendsapp-dev-214132",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-showerforfriendsapp-dev-214132/f7f4f5b0-f845-11eb-8e26-06f3b199d122",
+      "AmplifyAppId": "dpmceispf3xvn",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-214132-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "showerforfriendsapp0d96dd98": {}
+      },
+      "function": {
+        "putUsersLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+          "s3Key": "amplify-builds/putUsersLambda-7a79564f453771443677-build.zip"
+        },
+        "powerDisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+          "s3Key": "amplify-builds/powerDisplayLambda-4973356f51687557426d-build.zip"
+        },
+        "getMyDisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+          "s3Key": "amplify-builds/getMyDisplayLambda-424c56514b762b777743-build.zip"
+        },
+        "putUsersDataLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-214132-deployment",
+          "s3Key": "amplify-builds/putUsersDataLambda-51424b4b555a6d6c4b42-build.zip"
+        }
+      }
+    }
+  }
+}
