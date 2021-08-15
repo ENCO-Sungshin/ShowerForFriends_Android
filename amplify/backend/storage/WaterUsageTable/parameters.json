@@ -1,0 +1,7 @@
+{
+    "tableName": "WaterUsageTable",
+    "partitionKeyName": "waterUsage_id",
+    "partitionKeyType": "N",
+    "sortKeyName": "timeStamp",
+    "sortKeyType": "S"
+}

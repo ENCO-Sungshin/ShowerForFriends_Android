@@ -1,0 +1,50 @@
+{
+    "paths": [
+        {
+            "name": "/user",
+            "lambdaFunction": "UsersLambda",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/user"
+        }
+    ],
+    "resourceName": "showerforfriendsapi",
+    "apiName": "showerforfriendsapi",
+    "functionArns": [
+        {
+            "lambdaFunction": "UsersLambda"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 1,
+        "authRoleName": "amplify-showerforfriendsapp-dev-153130-authRole",
+        "unAuthRoleName": "amplify-showerforfriendsapp-dev-153130-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "UsersLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ],
+    "uuid": "d3a3f1c6"
+}

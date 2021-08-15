@@ -1,0 +1,27 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-showerforfriendsapp-dev-153130-authRole",
+      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-153130-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-153130-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+      "UnauthRoleName": "amplify-showerforfriendsapp-dev-153130-unauthRole",
+      "StackName": "amplify-showerforfriendsapp-dev-153130",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-showerforfriendsapp-dev-153130/6eb7e490-fd92-11eb-be4f-0a5f08261eb8",
+      "AmplifyAppId": "d1nff9g094u0d",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-153130-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "showerforfriendsapp1e7c224f": {}
+      },
+      "function": {
+        "UsersLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/UsersLambda-656a7a7554684e45445a-build.zip"
+        }
+      }
+    }
+  }
+}
