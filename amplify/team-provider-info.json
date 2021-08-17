@@ -19,7 +19,23 @@
       "function": {
         "UsersLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
-          "s3Key": "amplify-builds/UsersLambda-656a7a7554684e45445a-build.zip"
+          "s3Key": "amplify-builds/UsersLambda-6f6b67677a4166564638-build.zip"
+        },
+        "testlambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/testlambda-6b7067676656792b655a-build.zip"
+        },
+        "getDisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/getDisplayLambda-553472437a4253657570-build.zip"
+        },
+        "DisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/DisplayLambda-4945616b4877514c446d-build.zip"
+        },
+        "testLambdaE": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/testLambdaE-4c3638562f3732464a6a-build.zip"
         }
       }
     }

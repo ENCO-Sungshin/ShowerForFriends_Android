@@ -9,10 +9,10 @@
     android:layout_marginEnd="15dp"
     android:layout_marginRight="15dp"
     android:layout_marginBottom="15dp"
-    android:gravity="center"
     android:foreground="@drawable/list_back"
-    app:cardCornerRadius="8dp"
-    android:orientation="vertical">
+    android:gravity="center"
+    android:orientation="vertical"
+    app:cardCornerRadius="8dp">
 
 
     <LinearLayout
@@ -106,7 +106,8 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="♡" />
+                android:text="♡"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/storeMap"

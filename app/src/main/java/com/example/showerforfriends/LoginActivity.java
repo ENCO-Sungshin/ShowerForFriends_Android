@@ -93,8 +93,9 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     login_error_txt.setVisibility(View.VISIBLE);
                     Toast.makeText(LoginActivity.this, "로그인 정보를 입력해주세요.", Toast.LENGTH_SHORT).show(); }
-                else
+                else {
                     getSignIn();
+                }
             }
         });
 
@@ -106,38 +107,16 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        //getHashKey();
     }
 
     // 로그인 함수
     private void getSignIn() {
-        /*EditText login_id = findViewById(R.id.login_id);
-        EditText login_pw = findViewById(R.id.login_password);*/
         String username = login_id.getText().toString();
         String password = login_pw.getText().toString();
-        //String email = "email@email.com";
         Amplify.Auth.signIn(
                 username,
                 password,
-                /*result ->
-                {
-                    Log.i("AuthQuickstart", result.isSignInComplete() ? "Confirm signUp succeeded" : "Confirm sign up not complete");
-                    //put user data
-                    String userinfo="{"+
-                            "\"user_id\":"+"\""+"0"+"\","
-                            +"\"user_name\":"+"\""+username+"\","
-                            +"\"user_email\":"+"\""+email+"\""
-                            +"}";
-                    RestOptions options = RestOptions.builder()
-                            .addPath("/users")
-                            .addBody(userinfo.getBytes())
-                            .build();
-                    Amplify.API.post(options,
-                            response -> Log.i("MyAmplifyApp", "POST succeeded: " + response),
-                            error -> Log.e("MyAmplifyApp", "POST failed.", error)
-                    );
-                },
-                error -> Log.e("AuthQuickstart", error.toString())*/
+
                 result -> {Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
                     if(result.isSignInComplete() == true) {
                         login_error_txt.setVisibility(View.INVISIBLE);
@@ -187,28 +166,6 @@ public class LoginActivity extends AppCompatActivity {
         });*/
     }
 
-    /*private void getHashKey()
-    {
-        PackageInfo packageInfo = null;
-        try {
-            packageInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (packageInfo == null)
-            Log.e("KeyHash", "KeyHash:null");
-
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            } catch (NoSuchAlgorithmException e) {
-                Log.e("KeyHash", "Unable to get MessageDigest. signature=" + signature, e);
-            }
-        }
-    }*/
-
     // 앱 종료할 때 사용
     private long time = 0;
     Toast toast;
@@ -231,23 +188,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    /*// 뒤로가기 2번 눌러야 종료
-    private final long FINISH_INTERVAL_TIME = 1000;
-    private long backPressedTime = 0;
-    @Override
-    public void onBackPressed() {
-        long tempTime = System.currentTimeMillis();
-        long intervalTime = tempTime - backPressedTime;
-
-        // 뒤로 가기 할 경우 SignActivity 화면으로 이동
-        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
-        {
-            finish();
-        }
-        else
-        {
-            backPressedTime = tempTime;
-            Toast.makeText(getApplicationContext(), "한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
-        }
-    }*/
 }

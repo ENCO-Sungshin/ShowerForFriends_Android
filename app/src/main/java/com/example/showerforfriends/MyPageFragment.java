@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
@@ -31,6 +32,9 @@ public class MyPageFragment extends Fragment {
     ImageButton bookmarkButton;
     Button logoutButton;
     TextView user_name, input_hairlength, input_weight, input_tall;
+    String hair_data, height_data, weight_data, name_data;
+    String hair_value, height_value, weight_value, name_value;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,25 +92,78 @@ public class MyPageFragment extends Fragment {
 
         user_name.setText(AWSMobileClient.getInstance().getUsername());
 
+        String loadInfo = "{" +
+                "\"user_id\" : " + 0 + "}";
 
-        /*String userinfo="{"+
-                "\"user_id\":"+"\""+Amplify.Auth.getCurrentUser().getUserId()+"\""
-                +"}";
         RestOptions options = RestOptions.builder()
-                .addPath("/mydisplay")
-                .addBody(userinfo.getBytes())
+                .addHeader("Accept","application/hal+json")
+                .addHeader("Content-Type","application/json;charset=UTF-8")
+                .addPath("/test/")
+                .addBody(loadInfo.getBytes())
                 .build();
+
         Amplify.API.post(options,
                 response -> {
-                    Log.i("MyAmplifyApp", "POST succeeded: " + response.getData().asString());
-                    String allDataString = response.getData().asString();
-                    String hair = "user_hair";
-                    int hair_num =allDataString.indexOf(hair);
-                    input_hairlength.setText(allDataString.substring(hair_num, (allDataString.substring(hair_num).indexOf(",") + hair_num)));
+                    Log.i("MyAmplifyApp", "POST succeeded: " + response);
 
+                    //RestResponse res = response;
+                    System.out.println("String : " + response.getData().asString());
+
+                    String allData = response.getData().asString();
+                    Integer hair_index = allData.indexOf("\"user_hair\"");
+                    hair_data = allData.substring(hair_index, allData.substring(hair_index).indexOf(",") + hair_index);
+                    hair_value = hair_data.substring(hair_data.indexOf(":") + 1);
+                    System.out.println("Hair : " + hair_value);
+
+                    Integer height_index = allData.indexOf("\"user_height\"");
+                    height_data = allData.substring(height_index, allData.substring(height_index).indexOf(",") + height_index);
+                    height_value = height_data.substring(height_data.indexOf(":") + 1);
+                    System.out.println("Height : " + height_value);
+
+                    Integer weight_index = allData.indexOf("\"user_weight\"");
+                    weight_data = allData.substring(weight_index, allData.substring(weight_index).indexOf(",") + weight_index);
+                    weight_value = weight_data.substring(weight_data.indexOf(":") + 1);
+                    System.out.println("Weight : " + weight_value);
+
+                    Integer name_index = allData.indexOf("\"user_name\"");
+                    name_data = allData.substring(name_index, allData.substring(name_index).indexOf("}") + name_index);
+                    //name_value = name_data.substring(name_data.indexOf(":") + 2, name_data.substring(name_data.indexOf(":")).indexOf("\"") + name_data.indexOf(":"));
+                    System.out.println("Name : " + name_data);
+
+                    if(height_value.equals("0")) input_tall.setText("");
+                    else input_tall.setText(height_value + " cm");
+
+                    if(weight_value.equals("0")) input_weight.setText("");
+                    else input_weight.setText(weight_value + " kg");
+
+                    if(hair_value.equals("0")) input_hairlength.setText("");
+                    else {
+                        switch (hair_value) {
+                            case "1":
+                                input_hairlength.setText("짧은 머리");
+                                break;
+
+                            case "2":
+                                input_hairlength.setText("귀 위");
+                                break;
+
+                            case "3":
+                                input_hairlength.setText("귀 ~ 어깨 사이");
+                                break;
+
+                            case "4":
+                                input_hairlength.setText("어깨 아래 ~ 가슴");
+                                break;
+
+                            case "5":
+                                input_hairlength.setText("가슴 아래");
+                                break;
+                        }
+                    }
                 },
-                error -> Log.e("MyAmplifyApp", "POST failed.", error)
-        );*/
+                error -> Log.e("MyAmplifyApp", "POST failed: ", error));
+
+
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,18 +184,19 @@ public class MyPageFragment extends Fragment {
             }
         });
 
-        bookmarkButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), BookmarkActivity.class);
-                startActivity(intent);
-            }
-        });
-
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), AddInfoActivity.class);
+                //intent.putExtra("username", name_value); // username을 인증 코드 창에서 사용하기 위해
+                if(Integer.parseInt(hair_value) == 0) intent.putExtra("hair", "0");
+                else intent.putExtra("hair", hair_value);
+
+                if(Integer.parseInt(height_value) == 0) intent.putExtra("height", "0");
+                else intent.putExtra("height", height_value);
+
+                if(Integer.parseInt(weight_value) == 0) intent.putExtra("weight", "0");
+                else intent.putExtra("weight", weight_value);
                 startActivity(intent);
             }
         });

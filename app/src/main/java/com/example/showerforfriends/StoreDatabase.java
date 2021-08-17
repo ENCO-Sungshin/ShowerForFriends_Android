@@ -11,7 +11,7 @@ public class StoreDatabase {
 
     private static StoreDatabase database;
     public static String DATABASE_NAME = "store.db";
-    public static String TABLE_NOTE = "STORE";
+    public static String TABLE_NOTE = "storeTable";
     public static int DATABASE_VERSION = 1;
 
     private Context context;
@@ -72,9 +72,10 @@ public class StoreDatabase {
             // 생성
             String CREATE_SQL = "create table " + TABLE_NOTE + "("
                     + " store_id integer NOT NULL PRIMARY KEY AUTOINCREMENT, store_name TEXT DEFAULT '',"
-                    + " store_info TEXT DEFAULT '', store_uri TEXT DEFAULT '',"
-                    + " store_pos1 double DEFAULT '', store_pos2 double DEFAULT '', "
-                    + " TODO TEXT DEFAULT '')";
+                    + " store_info TEXT DEFAULT '', store_location TEXT DEFAULT '', store_uri TEXT DEFAULT '',"
+                    + " store_pos1 double DEFAULT '', store_pos2 double DEFAULT '')";
+                    /*+ " stroe_bookmark BOOLEAN DEFAULT '')"*/
+
 
             try {
                 sqLiteDatabase.execSQL(CREATE_SQL);

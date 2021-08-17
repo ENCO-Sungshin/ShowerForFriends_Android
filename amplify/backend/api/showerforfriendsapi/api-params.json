@@ -21,6 +21,50 @@
                 ]
             },
             "policyResourceName": "/user"
+        },
+        {
+            "name": "/display",
+            "lambdaFunction": "DisplayLambda",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/display"
+        },
+        {
+            "name": "/user",
+            "lambdaFunction": "testLambdaE",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/user"
         }
     ],
     "resourceName": "showerforfriendsapi",
@@ -28,11 +72,17 @@
     "functionArns": [
         {
             "lambdaFunction": "UsersLambda"
+        },
+        {
+            "lambdaFunction": "DisplayLambda"
+        },
+        {
+            "lambdaFunction": "testLambdaE"
         }
     ],
     "privacy": {
-        "auth": 1,
-        "unauth": 1,
+        "auth": 3,
+        "unauth": 3,
         "authRoleName": "amplify-showerforfriendsapp-dev-153130-authRole",
         "unAuthRoleName": "amplify-showerforfriendsapp-dev-153130-unauthRole"
     },
@@ -44,7 +94,23 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "DisplayLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "testLambdaE",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
     ],
-    "uuid": "d3a3f1c6"
+    "uuid": "e817d9ed"
 }

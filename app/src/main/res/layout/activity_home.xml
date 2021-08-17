@@ -54,7 +54,7 @@
         android:keepScreenOn="true"
         app:itemIconTint="@color/button_color"
         app:itemTextColor="@color/button_color"
-        app:labelVisibilityMode="labeled"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/menu_items" />
 
 

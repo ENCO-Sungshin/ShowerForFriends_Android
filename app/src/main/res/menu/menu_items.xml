@@ -2,6 +2,10 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--<dimen android:name="design_navigation_icon_size"
+        tools:override="true"
+        xmlns:tools="http://schemas.android.com/tools">40dp</dimen>-->
+
     <item
         android:id="@+id/action_timer"
         android:icon="@drawable/menu_timer"

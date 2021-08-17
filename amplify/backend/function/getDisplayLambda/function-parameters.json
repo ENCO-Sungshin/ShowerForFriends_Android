@@ -1,12 +1,6 @@
 {
   "permissions": {
     "storage": {
-      "UserTable": [
-        "create",
-        "read",
-        "update",
-        "delete"
-      ],
       "DisplayTable": [
         "create",
         "read",

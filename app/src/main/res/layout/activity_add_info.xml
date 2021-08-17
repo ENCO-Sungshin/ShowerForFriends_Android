@@ -85,31 +85,36 @@
                         android:id="@+id/hair_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/button_color"
                         android:text="짧은 머리" />
 
                     <RadioButton
                         android:id="@+id/hair_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/button_color"
                         android:text="귀 위" />
 
                     <RadioButton
                         android:id="@+id/hair_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="가슴 아래" />
+                        android:buttonTint="@color/button_color"
+                        android:text="귀 ~ 어깨 사이" />
 
                     <RadioButton
                         android:id="@+id/hair_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="귀 ~ 어깨 사이" />
+                        android:buttonTint="@color/button_color"
+                        android:text="어깨 아래 ~ 가슴" />
 
                     <RadioButton
                         android:id="@+id/hair_5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="어깨 아래 ~ 가슴" />
+                        android:buttonTint="@color/button_color"
+                        android:text="가슴 아래" />
                 </RadioGroup>
 
             </LinearLayout>

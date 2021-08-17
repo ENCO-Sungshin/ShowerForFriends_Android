@@ -19,8 +19,11 @@ import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.results.SignInResult;
 import com.amazonaws.mobile.client.results.SignUpResult;
 import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
+import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.rest.RestOptions;
 import com.amplifyframework.auth.AuthUserAttributeKey;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
+import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
 
@@ -91,20 +94,21 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
 
                                     //put user data
                                     String userinfo = "{" +
-                                            "\"user_id\":" + "\"" + "0" + "\","
+                                            "\"user_id\":" + 0 + ","
                                             + "\"user_name\":" + "\"" + username + "\","
                                             + "\"user_email\":" + "\"" + email + "\""
                                             + "}";
                                     RestOptions options = RestOptions.builder()
                                             .addHeader("Accept","application/hal+json")
                                             .addHeader("Content-Type","application/json;charset=UTF-8")
-                                            .addPath("/user/3")
+                                            .addPath("/users/")
                                             .addBody(userinfo.getBytes())
                                             .build();
                                     Amplify.API.post(options,
                                             response -> Log.i("MyAmplifyApp", "POST succeeded: " + response),
                                             error -> Log.e("MyAmplifyApp", "POST failed.", error)
                                     );
+
 
                                     Intent i = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
                                     startActivity(i);
