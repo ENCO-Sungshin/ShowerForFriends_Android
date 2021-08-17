@@ -14,8 +14,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.amplifyframework.api.rest.RestOptions;
+import com.amplifyframework.api.rest.RestResponse;
 import com.amplifyframework.core.Amplify;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,19 +29,23 @@ import java.util.ArrayList;
 
 public class FirendListActivity extends AppCompatActivity {
 
+    private Toolbar toolbar;
     private ArrayList<Friend> friendArrayList = new ArrayList<>();
-    FriendItemAdapter recyclerViewAdapter;
-    RecyclerView.LayoutManager layoutManager;
-    RecyclerView recyclerView;
+    private FriendItemAdapter friendItemAdapter;
+    private RecyclerView recyclerView;
+    private Friend[] friendItem;
     Context context;
     String name;
-
+    String array[];
+    public String res;
+    Friend f;
     //Button addFriend;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firend_list);
 
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         context = getApplicationContext();
         recyclerView = (RecyclerView) findViewById(R.id.friendList);
         recyclerView.setHasFixedSize(true);
@@ -52,8 +62,59 @@ public class FirendListActivity extends AppCompatActivity {
                 response -> {
                     Log.i("MyAmplifyApp", "GET succeeded: " + response);
 
+                    /*String res = response.getData().asString();
+
+                    System.out.println("String : " + res);*/
+
+
+                    //String array[] = res.split("},");
+                    /*try {
+                        JSONObject jsonObject = response.getData().asJSONObject();
+                        JSONArray jsonArray = new JSONArray();
+                        jsonObject.toJSONArray(jsonArray);
+                        System.out.println(jsonArray.length());
+
+                        for(int i=0; i<jsonArray.length(); i++)
+                            System.out.println("i=" + i + " : " + jsonArray.get(i).toString());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }*/
+                    /*String jsonStr = response.getData().asString();
+                    array = jsonStr.split("]");
+
+                    for(int i=0; i<array.length; i++)
+                        System.out.println(array[i]);
+
+                    String data_str = array[0].substring(array[0].indexOf("[")+1);
+                    System.out.println("data_str : " + data_str);
+                    String array_2[] = data_str.split(",");
+                    for(int i=0; i<array_2.length; i++) {
+                        System.out.println(array_2[i]);
+                    }*/
+
+                  /*  name = new String[2];
+                    for(int i=0; i<2 && i*7+6 < array_2.length; i++)
+                    {
+                        name[i] = array_2[i*7+6].substring(array_2[i*7+6].indexOf(":"), array_2[i*7+6].indexOf("}"));
+                        System.out.println("name : " + name[i]);
+                    }*/
+                    /*JsonParser parser = new JsonParser();
+                    Object object = parser.parse(jsonStr);
+                    JsonObject jsonObject = (JsonObject) object;
+
+                    System.out.println("jsonStr : " + jsonObject);
+
+                    JsonElement element = jsonObject.get("user_name");
+                    System.out.println("element : " + element);*/
+                    /*JsonElement name_json = jsonObject.get("\"user_name\"");
+                    name = name_json.getAsString();
+
+                    System.out.println("name : " + name);*/
+
                     System.out.println("String : " + response.getData().asString());
-                    String res = response.getData().asString();
+                    res = response.getData().asString();
+
+
                     String counts_string = res.substring(res.indexOf("]") + 2);
                     String users_data = res.substring(0, res.indexOf("]"));
                     System.out.println("User data : " + users_data);
@@ -63,7 +124,10 @@ public class FirendListActivity extends AppCompatActivity {
                     Integer count_value = Integer.parseInt(count_data.substring(count_data.indexOf(":") + 1));
                     System.out.println("Count : " + count_value);
                     users_data = users_data.substring(10);
+
                     String userData[] = users_data.split(",");
+
+                    friendItem = new Friend[count_value];
 
                     int count = 0;
                     Integer user_id_index = 0;
@@ -79,8 +143,10 @@ public class FirendListActivity extends AppCompatActivity {
                                name = userData[i];
                             }
                             else*/ if (i == count * 7 + user_name_index) {
-                                name = userData[i];
+                                name = userData[i].substring(1, userData[i].indexOf("}")-1);
                                 System.out.println("name : " + name);
+                                Friend item = new Friend(name, 0, 0);
+                                friendArrayList.add(item);
                             }
                             /*else if (i == count * 7 + user_display_index) {
                                 showData[index] = userData[i];
@@ -90,22 +156,53 @@ public class FirendListActivity extends AppCompatActivity {
                         {
                             count++;
                             /*addGroupItem(name, 0, 1);*/
-                            Friend item = new Friend(name, 0, 0);
-                            friendArrayList.add(item);
+                            /*Friend item = new Friend(name, 0, 0);
+                            friendArrayList.add(item);*/
                         }
 
                         System.out.println( userData[i] + " / ");
+
                     }
 
+                    System.out.println(friendArrayList.get(0).getFriend_name());
+                    //recyclerView.setAdapter(friendItemAdapter);
+                    friendItemAdapter = new FriendItemAdapter(getApplicationContext(), friendArrayList);
+
+                   /* System.out.println(friendArrayList.get(0).getFriend_name());*/
                 },
                 error -> Log.e("MyAmplifyApp", "GET failed: ", error));
 
-
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerViewAdapter = new FriendItemAdapter(context, friendArrayList);
+        //System.out.println(friendArrayList.get(0).getFriend_name());
+        //friendItemAdapter = new FriendItemAdapter(getApplicationContext(), friendArrayList);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setAdapter(friendItemAdapter);
+
+        /*String data_str = array[0].substring(array[0].indexOf("[")+1);
+        System.out.println("data_str : " + data_str);
+        String array_2[] = data_str.split(",");
+        for(int i=0; i<array_2.length; i++) {
+            System.out.println(array_2[i]);
+        }
+
+        for(int i=0; i<2 && i*7+6 < array_2.length; i++)
+        {
+            name[i] = array_2[i*7+6].substring(array_2[i*7+6].indexOf(":"), array_2[i*7+6].indexOf("}"));
+            System.out.println("name : " + name[i]);
+        }*/
+
+        /*Friend friend[] = new Friend[2];
+        for(int i=0; i<2; i++)
+        {
+            friendArrayList.add(new Friend(name[i], 0, 0));
+        }*/
+
+
+        // 액션바에 뒤로가기 버튼 추가하고 누르면 홈화면으로 돌아가기
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         /*addFriend = (Button) findViewById(R.id.addFriend);
         addFriend.setOnClickListener(new View.OnClickListener() {
@@ -118,8 +215,16 @@ public class FirendListActivity extends AppCompatActivity {
 
     }
 
-    public void addGroupItem(String friend_name, Integer use_time, Integer friend_image){
-        Friend item = new Friend(friend_name, use_time, friend_image);
-        friendArrayList.add(item);
+    // 액션바에 뒤로가기 버튼 추가하고 누르면 홈화면으로 돌아가기
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

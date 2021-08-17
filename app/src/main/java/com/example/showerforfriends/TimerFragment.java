@@ -101,8 +101,8 @@ public class TimerFragment extends Fragment {
             public void onClick(View v){
                 if(isClicked == false){
                     isClicked = true;
-                    ShowerThread st = new ShowerThread();
-                    st.start();
+                    //ShowerThread st = new ShowerThread();
+                    //st.start();
                     b.setText("샤워 중 입니다");
                     //Toast.makeText(TimerActivity.this, "친환경적인 샤워를 시작해보아요!", Toast.LENGTH_SHORT).show();
                 }

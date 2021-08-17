@@ -69,6 +69,14 @@
                 android:textAlignment="center"
                 android:textColor="@color/app_color_3"
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/display_id_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textColor="@color/app_color_3"
+                android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout

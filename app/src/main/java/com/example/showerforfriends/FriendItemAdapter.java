@@ -15,15 +15,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class FriendItemAdapter extends RecyclerView.Adapter<com.example.showerforfriends.FriendItemAdapter.ViewHolder> {
+public class FriendItemAdapter extends RecyclerView.Adapter<FriendItemAdapter.ViewHolder> {
 
-    ArrayList<Friend> items = new ArrayList<Friend>();
+    ArrayList<Friend> item = new ArrayList<Friend>();
     Context context;
 
     public FriendItemAdapter(Context context, ArrayList<Friend> friendArrayList)
     {
         this.context = context;
-        this.items = friendArrayList;
+        this.item = friendArrayList;
     }
 
     @NonNull
@@ -35,7 +35,12 @@ public class FriendItemAdapter extends RecyclerView.Adapter<com.example.showerfo
 
     @Override
     public void onBindViewHolder(@NonNull FriendItemAdapter.ViewHolder holder, int position) {
-        ((FriendItemAdapter.ViewHolder)holder).onBind(items.get(position));
+        /*((FriendItemAdapter.ViewHolder)holder).onBind(item.get(position));*/
+        Friend friendItem = item.get(position);
+
+        holder.friend_name.setText(friendItem.getFriend_name());
+        holder.friend_usage.setText(friendItem.getUse_time());
+        holder.image_friend.setImageResource(friendItem.getFriend_img());
     }
 
     @Override
@@ -43,7 +48,7 @@ public class FriendItemAdapter extends RecyclerView.Adapter<com.example.showerfo
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return item.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -61,12 +66,6 @@ public class FriendItemAdapter extends RecyclerView.Adapter<com.example.showerfo
             image_friend = (ImageView) itemView.findViewById(R.id.image_friend);
 
 
-        }
-
-        public void onBind(Friend item) {
-            friend_name.setText(item.getFriend_name());
-            friend_usage.setText(item.getUse_time());
-            image_friend.setImageResource(item.getFriend_img());
         }
     }
 }

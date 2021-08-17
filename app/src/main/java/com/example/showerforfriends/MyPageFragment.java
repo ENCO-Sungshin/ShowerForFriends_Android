@@ -20,6 +20,8 @@ import com.amazonaws.mobile.client.UserStateDetails;
 import com.amplifyframework.api.rest.RestOptions;
 import com.amplifyframework.core.Amplify;
 
+import static com.amazonaws.mobile.auth.core.internal.util.ThreadUtils.runOnUiThread;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link MyPageFragment#newInstance} factory method to
@@ -92,7 +94,7 @@ public class MyPageFragment extends Fragment {
         registerHW_btn = (Button) viewGroup.findViewById(R.id.registerHW_btn);
 
         user_name.setText(AWSMobileClient.getInstance().getUsername());
-        System.out.println(Amplify.Auth.getCurrentUser().getUserId());
+//        System.out.println(Amplify.Auth.getCurrentUser().getUserId());
 
         String loadInfo = "{" +
                 "\"user_id\" : " + 0 + "}";
@@ -132,36 +134,41 @@ public class MyPageFragment extends Fragment {
                     //name_value = name_data.substring(name_data.indexOf(":") + 2, name_data.substring(name_data.indexOf(":")).indexOf("\"") + name_data.indexOf(":"));
                     System.out.println("Name : " + name_data);
 
-                    if(height_value.equals("0")) input_tall.setText("");
-                    else input_tall.setText(height_value + " cm");
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if(height_value.equals("0")) input_tall.setText("");
+                            else input_tall.setText(height_value + " cm");
 
-                    if(weight_value.equals("0")) input_weight.setText("");
-                    else input_weight.setText(weight_value + " kg");
+                            if(weight_value.equals("0")) input_weight.setText("");
+                            else input_weight.setText(weight_value + " kg");
 
-                    if(hair_value.equals("0")) input_hairlength.setText("");
-                    else {
-                        switch (hair_value) {
-                            case "1":
-                                input_hairlength.setText("짧은 머리");
-                                break;
+                            if(hair_value.equals("0")) input_hairlength.setText("");
+                            else {
+                                switch (hair_value) {
+                                    case "1":
+                                        input_hairlength.setText("짧은 머리");
+                                        break;
 
-                            case "2":
-                                input_hairlength.setText("귀 위");
-                                break;
+                                    case "2":
+                                        input_hairlength.setText("귀 위");
+                                        break;
 
-                            case "3":
-                                input_hairlength.setText("귀 ~ 어깨 사이");
-                                break;
+                                    case "3":
+                                        input_hairlength.setText("귀 ~ 어깨 사이");
+                                        break;
 
-                            case "4":
-                                input_hairlength.setText("어깨 아래 ~ 가슴");
-                                break;
+                                    case "4":
+                                        input_hairlength.setText("어깨 아래 ~ 가슴");
+                                        break;
 
-                            case "5":
-                                input_hairlength.setText("가슴 아래");
-                                break;
+                                    case "5":
+                                        input_hairlength.setText("가슴 아래");
+                                        break;
+                                }
+                            }
                         }
-                    }
+                    });
                 },
                 error -> Log.e("MyAmplifyApp", "POST failed: ", error));
 
