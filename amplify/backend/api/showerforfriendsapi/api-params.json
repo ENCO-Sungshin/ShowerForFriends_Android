@@ -1,52 +1,32 @@
 {
     "paths": [
         {
-            "name": "/user",
-            "lambdaFunction": "UsersLambda",
-            "privacy": {
-                "protected": true,
-                "auth": [
-                    "/POST",
-                    "/GET",
-                    "/PUT",
-                    "/PATCH",
-                    "/DELETE"
-                ],
-                "unauth": [
-                    "/POST",
-                    "/GET",
-                    "/PUT",
-                    "/PATCH",
-                    "/DELETE"
-                ]
-            },
-            "policyResourceName": "/user"
-        },
-        {
             "name": "/display",
             "lambdaFunction": "DisplayLambda",
             "privacy": {
-                "protected": true,
-                "auth": [
-                    "/POST",
-                    "/GET",
-                    "/PUT",
-                    "/PATCH",
-                    "/DELETE"
-                ],
-                "unauth": [
-                    "/POST",
-                    "/GET",
-                    "/PUT",
-                    "/PATCH",
-                    "/DELETE"
-                ]
+                "open": true
             },
             "policyResourceName": "/display"
         },
         {
-            "name": "/user",
-            "lambdaFunction": "testLambdaE",
+            "name": "/test",
+            "lambdaFunction": "testLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/test"
+        },
+        {
+            "name": "/users",
+            "lambdaFunction": "UserDataLambda",
+            "privacy": {
+                "open": true
+            },
+            "policyResourceName": "/users"
+        },
+        {
+            "name": "/info",
+            "lambdaFunction": "UserCheckLambda",
             "privacy": {
                 "protected": true,
                 "auth": [
@@ -64,37 +44,32 @@
                     "/DELETE"
                 ]
             },
-            "policyResourceName": "/user"
+            "policyResourceName": "/info"
         }
     ],
     "resourceName": "showerforfriendsapi",
     "apiName": "showerforfriendsapi",
     "functionArns": [
         {
-            "lambdaFunction": "UsersLambda"
-        },
-        {
             "lambdaFunction": "DisplayLambda"
         },
         {
-            "lambdaFunction": "testLambdaE"
+            "lambdaFunction": "testLambda"
+        },
+        {
+            "lambdaFunction": "UserDataLambda"
+        },
+        {
+            "lambdaFunction": "UserCheckLambda"
         }
     ],
     "privacy": {
-        "auth": 3,
-        "unauth": 3,
+        "auth": 1,
+        "unauth": 1,
         "authRoleName": "amplify-showerforfriendsapp-dev-153130-authRole",
         "unAuthRoleName": "amplify-showerforfriendsapp-dev-153130-unauthRole"
     },
     "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "UsersLambda",
-            "attributes": [
-                "Name",
-                "Arn"
-            ]
-        },
         {
             "category": "function",
             "resourceName": "DisplayLambda",
@@ -105,12 +80,28 @@
         },
         {
             "category": "function",
-            "resourceName": "testLambdaE",
+            "resourceName": "testLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "UserDataLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "UserCheckLambda",
             "attributes": [
                 "Name",
                 "Arn"
             ]
         }
     ],
-    "uuid": "e817d9ed"
+    "uuid": "0b16289c"
 }

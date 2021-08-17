@@ -16,18 +16,6 @@
     "s3Key": {
       "Type": "String"
     },
-    "storageDisplayTableName": {
-      "Type": "String",
-      "Default": "storageDisplayTableName"
-    },
-    "storageDisplayTableArn": {
-      "Type": "String",
-      "Default": "storageDisplayTableArn"
-    },
-    "storageDisplayTableStreamArn": {
-      "Type": "String",
-      "Default": "storageDisplayTableStreamArn"
-    },
     "storageUserTableName": {
       "Type": "String",
       "Default": "storageUserTableName"
@@ -71,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "DisplayLambda",
+            "UserCheckLambda",
             {
               "Fn::Join": [
                 "",
                 [
-                  "DisplayLambda",
+                  "UserCheckLambda",
                   "-",
                   {
                     "Ref": "env"
@@ -93,15 +81,6 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
-            },
-            "STORAGE_DISPLAYTABLE_NAME": {
-              "Ref": "storageDisplayTableName"
-            },
-            "STORAGE_DISPLAYTABLE_ARN": {
-              "Ref": "storageDisplayTableArn"
-            },
-            "STORAGE_DISPLAYTABLE_STREAMARN": {
-              "Ref": "storageDisplayTableStreamArn"
             },
             "STORAGE_USERTABLE_NAME": {
               "Ref": "storageUserTableName"
@@ -131,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "showerforfriendsappLambdaRole608530df",
+            "showerforfriendsappLambdaRole114c906d",
             {
               "Fn::Join": [
                 "",
                 [
-                  "showerforfriendsappLambdaRole608530df",
+                  "showerforfriendsappLambdaRole114c906d",
                   "-",
                   {
                     "Ref": "env"
@@ -248,39 +227,6 @@
                     [
                       {
                         "Ref": "storageUserTableArn"
-                      },
-                      "index/*"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "Effect": "Allow",
-              "Action": [
-                "dynamodb:Put*",
-                "dynamodb:Create*",
-                "dynamodb:BatchWriteItem",
-                "dynamodb:Get*",
-                "dynamodb:BatchGetItem",
-                "dynamodb:List*",
-                "dynamodb:Describe*",
-                "dynamodb:Scan",
-                "dynamodb:Query",
-                "dynamodb:Update*",
-                "dynamodb:RestoreTable*",
-                "dynamodb:Delete*"
-              ],
-              "Resource": [
-                {
-                  "Ref": "storageDisplayTableArn"
-                },
-                {
-                  "Fn::Join": [
-                    "/",
-                    [
-                      {
-                        "Ref": "storageDisplayTableArn"
                       },
                       "index/*"
                     ]

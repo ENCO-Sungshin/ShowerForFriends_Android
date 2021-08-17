@@ -59,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "testLambdaE",
+            "UserDataLambda",
             {
               "Fn::Join": [
                 "",
                 [
-                  "testLambdaE",
+                  "UserDataLambda",
                   "-",
                   {
                     "Ref": "env"
@@ -101,7 +101,7 @@
         },
         "Runtime": "nodejs14.x",
         "Layers": [],
-        "Timeout": "25"
+        "Timeout": 25
       }
     },
     "LambdaExecutionRole": {
@@ -110,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "showerforfriendsappLambdaRolef3d82c5a",
+            "showerforfriendsappLambdaRole3b8c5695",
             {
               "Fn::Join": [
                 "",
                 [
-                  "showerforfriendsappLambdaRolef3d82c5a",
+                  "showerforfriendsappLambdaRole3b8c5695",
                   "-",
                   {
                     "Ref": "env"

@@ -71,22 +71,27 @@ public class AddInfoActivity extends AppCompatActivity {
             switch (hair_data) {
                 case "1":
                     hair_1.setChecked(true);
+                    select_hair = 1;
                     break;
 
                 case "2":
                     hair_2.setChecked(true);
+                    select_hair = 2;
                     break;
 
                 case "3":
                     hair_3.setChecked(true);
+                    select_hair = 3;
                     break;
 
                 case "4":
                     hair_4.setChecked(true);
+                    select_hair = 4;
                     break;
 
                 case "5":
                     hair_5.setChecked(true);
+                    select_hair = 5;
                     break;
             }
         }
@@ -200,15 +205,6 @@ public class AddInfoActivity extends AppCompatActivity {
             }
         });
 
-        /*if(weight_input.getText().toString().equals("0") == false) {
-            select_weight = Integer.parseInt(weight_input.getText().toString());
-        }
-
-        if(tall_input.getText().toString().equals("0") == false) {
-            select_tall = Integer.parseInt(tall_input.getText().toString());
-        }*/
-
-
         store_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -246,7 +242,6 @@ public class AddInfoActivity extends AppCompatActivity {
 
                                 //finishActivity(1);
                                 finish();
-                                //startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                             }
                         });
                         dlg.setNegativeButton("아니요", null);

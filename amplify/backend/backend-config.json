@@ -35,6 +35,10 @@
     "WaterUsageTable": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
+    },
+    "UsersTable": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   },
   "function": {
@@ -86,6 +90,15 @@
       "dependsOn": [
         {
           "category": "storage",
+          "resourceName": "UserTable",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        },
+        {
+          "category": "storage",
           "resourceName": "DisplayTable",
           "attributes": [
             "Name",
@@ -95,7 +108,39 @@
         }
       ]
     },
-    "testLambdaE": {
+    "testLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "UserTable",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
+    },
+    "UserDataLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "UserTable",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
+    },
+    "UserCheckLambda": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
@@ -119,14 +164,6 @@
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "UsersLambda",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
-        {
-          "category": "function",
           "resourceName": "DisplayLambda",
           "attributes": [
             "Name",
@@ -135,7 +172,23 @@
         },
         {
           "category": "function",
-          "resourceName": "testLambdaE",
+          "resourceName": "testLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "UserDataLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "UserCheckLambda",
           "attributes": [
             "Name",
             "Arn"

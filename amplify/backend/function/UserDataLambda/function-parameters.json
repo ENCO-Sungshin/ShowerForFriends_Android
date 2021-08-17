@@ -6,12 +6,6 @@
         "read",
         "update",
         "delete"
-      ],
-      "DisplayTable": [
-        "create",
-        "read",
-        "update",
-        "delete"
       ]
     }
   },

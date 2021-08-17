@@ -14,12 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity android:name=".RegisterHWActivity"></activity>
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="000bc603aa4fc49054b385e0b0fddfbd" />
 
-        <activity android:name=".ConfirmSignUpActivity"></activity>
+        <activity android:name=".ConfirmSignUpActivity" />
         <activity android:name=".ShowMapActivity" />
         <activity android:name=".AddInfoActivity" />
         <activity android:name=".FriendAddActivity" />
