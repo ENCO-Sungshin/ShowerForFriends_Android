@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddInfoActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="?attr/colorPrimary"
+        android:gravity="top"
+        android:theme="?attr/actionBarTheme">
+
+        <TextView
+            android:id="@+id/appName_mainToolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="@string/shower_for_friends"
+            android:textAllCaps="true"
+            android:textColor="@color/app_color_1"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+            android:textSize="25sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/divideAppName"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="?android:attr/listDivider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/info_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                android:gravity="center"
+                android:text="당신의 정보를 입력해주세요."
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/hair_len"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:text="머리 길이"
+                    android:textColor="@color/app_color_1"
+                    android:textSize="16sp" />
+
+                <RadioGroup
+                    android:id="@+id/hairgroup"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <RadioButton
+                        android:id="@+id/hair_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:text="짧은 머리" />
+
+                    <RadioButton
+                        android:id="@+id/hair_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:text="귀 위" />
+
+                    <RadioButton
+                        android:id="@+id/hair_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:text="귀 ~ 어깨 사이" />
+
+                    <RadioButton
+                        android:id="@+id/hair_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:text="어깨 아래 ~ 가슴" />
+
+                    <RadioButton
+                        android:id="@+id/hair_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:text="가슴 아래" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:text="몸무게"
+                    android:textColor="@color/app_color_1"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/weight_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:backgroundTint="@color/app_color_2"
+                        android:ems="10"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:gravity="right"
+                        android:hint="50"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/app_color_1" />
+
+                    <TextView
+                        android:id="@+id/weight_kg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="kg"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:textSize="15sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:text="키"
+                    android:textColor="@color/app_color_1"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/tall_input"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp"
+                        android:backgroundTint="@color/app_color_2"
+                        android:ems="10"
+                        android:gravity="right"
+                        android:hint="160"
+                        android:inputType="textPersonName"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:textColor="@color/app_color_1" />
+
+                    <TextView
+                        android:id="@+id/tall_cm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:text="cm"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/store_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_color_drawable"
+        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+        android:text="저장" />
+
+
+</LinearLayout>

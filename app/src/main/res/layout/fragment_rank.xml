@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RankFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/user_name_rank"
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/app_color_1"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    />
+
+                <TextView
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:id="@+id/rank_detail_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="님의 물 사용 시간은"
+                    android:textAlignment="center"
+                    android:textColor="@color/app_color_3"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/user_time_rank"
+                    android:layout_width="41dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textColor="@color/app_color_1"
+                    android:text="50"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h" />
+
+                <TextView
+                    android:id="@+id/rank_detail_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="분 입니다"
+                    android:textAlignment="center"
+                    android:textColor="@color/app_color_3"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="당신은.."
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:textAlignment="center"
+                    android:padding="5dp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_color_3"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:id="@+id/user_useTime_rank"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:lineSpacingExtra="8sp"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/app_color_1"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/user_char"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/rank_detail2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="다른 사용자의 사용시간을 확인하세요"
+                    android:textAlignment="center"
+                    android:textColor="@color/app_color_3"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/list_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_color_drawable"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:text="사용자 목록" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
