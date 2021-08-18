@@ -36,7 +36,7 @@ public class RegisterHWActivity extends AppCompatActivity {
         display_id_check = (TextView) findViewById(R.id.display_id_check);
 
         String loadInfo = "{" +
-                "\"user_id\" : " + 0 + "}";
+                "\"user_id\" : \"" + Amplify.Auth.getCurrentUser().getUserId() + "\"}";
 
         RestOptions options = RestOptions.builder()
                 .addHeader("Accept","application/hal+json")
@@ -50,12 +50,12 @@ public class RegisterHWActivity extends AppCompatActivity {
                     String res = response.getData().asString();
                     Integer display_index = res.indexOf("\"display_id\"");
                     String display_data = res.substring(display_index, res.substring(display_index).indexOf(",") + display_index);
-                    Integer display_value = Integer.parseInt(display_data.substring(display_data.indexOf(":") + 1));
+                    String display_value = display_data.substring(display_data.indexOf(":") + 1);
                     System.out.println(display_value);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            display_id_check.setText(display_value.toString());
+                            display_id_check.setText(display_value);
                         }
                     });
 
@@ -84,11 +84,11 @@ public class RegisterHWActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(input_hw_id.getText().toString().equals(""))
-                    Toast.makeText(getApplicationContext(), "기기의 ID를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "기기의 ID를 작성했는지 확인해주세요.", Toast.LENGTH_SHORT).show();
                 else {
-                    Integer display_num = Integer.parseInt(display_id_check.getText().toString());
+                    String display_num = display_id_check.getText().toString();
                     System.out.println(display_num);
-                    if(display_num == 0) {
+                    if(display_num.equals("null")) {
                         AlertDialog.Builder dlg = new AlertDialog.Builder(RegisterHWActivity.this);
                         dlg.setTitle("기기 등록");
                         dlg.setMessage("기기를 등록합니다.");
@@ -99,8 +99,8 @@ public class RegisterHWActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 // update database(user info)
                                 String inputInfo = "{" +
-                                        "\"user_id\" : " + 0 + ", " +
-                                        "\"display_id\" : " + Integer.parseInt(input_hw_id.getText().toString()) + "}";
+                                        "\"user_id\" : \"" + Amplify.Auth.getCurrentUser().getUserId() + "\", " +
+                                        "\"display_id\" : \"" + input_hw_id.getText().toString() + "\"}";
 
                                 RestOptions options = RestOptions.builder()
                                         .addHeader("Accept", "application/hal+json")
@@ -122,7 +122,7 @@ public class RegisterHWActivity extends AppCompatActivity {
                         dlg.setNegativeButton("아니요", null);
                         dlg.show();
                     }
-                    else if(display_num != 0) {
+                    else {
                         AlertDialog.Builder dlg = new AlertDialog.Builder(RegisterHWActivity.this);
                         dlg.setTitle("기기 등록");
                         dlg.setMessage("이미 등록된 기기가 있습니다. 새로 등록하시겠습니까?");
@@ -131,6 +131,27 @@ public class RegisterHWActivity extends AppCompatActivity {
                         dlg.setPositiveButton("예", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
+
+                                // update database(user info)
+                                String inputInfo = "{" +
+                                        "\"user_id\" : \"" + Amplify.Auth.getCurrentUser().getUserId() + "\", " +
+                                        "\"display_id\" : \"" + input_hw_id.getText().toString() + "\"}";
+
+                                RestOptions options = RestOptions.builder()
+                                        .addHeader("Accept", "application/hal+json")
+                                        .addHeader("Content-Type", "application/json;charset=UTF-8")
+                                        .addPath("/info")
+                                        .addBody(inputInfo.getBytes())
+                                        .build();
+
+                                Amplify.API.put(options,
+                                        response -> {
+                                            Log.i("MyAmplifyApp", "POST succeeded: " + response);
+                                        },
+                                        error -> {
+                                            Log.e("MyAmplifyApp", "POST failed: ", error);
+                                        });
+
                                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                             }
                         });

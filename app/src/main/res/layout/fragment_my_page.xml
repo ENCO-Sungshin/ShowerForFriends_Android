@@ -117,7 +117,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="* 값이 나타나지 않는다면 본인 값으로 설정해주세요. *"
+                            android:text="* 미정으로 표시된다면 본인 값으로 설정해주세요. *"
                             android:textAlignment="center"
                             android:textColor="@color/app_color_3"
                             android:textSize="10sp" />

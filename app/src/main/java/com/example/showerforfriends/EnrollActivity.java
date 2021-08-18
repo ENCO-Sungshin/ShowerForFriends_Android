@@ -39,7 +39,7 @@ public class EnrollActivity extends AppCompatActivity {
     String userName;
     String userEmail;
     String userPassword;
-    EditText putName_enroll, putNickname_enroll, putEmailID_enroll, putPassword_enroll, putCheckPW_enroll;
+    EditText putName_enroll, /*putNickname_enroll,*/ putEmailID_enroll, putPassword_enroll, putCheckPW_enroll;
     TextView enroll_error_txt;
     Button enroll_Btn;
 
@@ -53,7 +53,7 @@ public class EnrollActivity extends AppCompatActivity {
         putName_enroll = (EditText) findViewById(R.id.putName_enroll);
         putEmailID_enroll = (EditText) findViewById(R.id.putEmailID_enroll);
         putPassword_enroll = (EditText) findViewById(R.id.putPassword_enroll);
-        putNickname_enroll = (EditText) findViewById(R.id.putNickname_enroll);
+        //putNickname_enroll = (EditText) findViewById(R.id.putNickname_enroll);
         putCheckPW_enroll = (EditText) findViewById(R.id.putCheckPW_enroll);
         enroll_Btn = (Button) findViewById(R.id.enroll_Btn);
         enroll_error_txt = (TextView) findViewById(R.id.enroll_error_txt);
@@ -63,7 +63,7 @@ public class EnrollActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(putName_enroll.getText().toString().equals("") || putEmailID_enroll.getText().toString().equals("") || putPassword_enroll.getText().toString().equals("")
-                        || putNickname_enroll.getText().toString().equals("") || putCheckPW_enroll.getText().toString().equals("")) {
+                        || /*putNickname_enroll.getText().toString().equals("") ||*/ putCheckPW_enroll.getText().toString().equals("")) {
                     Toast.makeText(EnrollActivity.this, "모든 항목이 채워져있지 않습니다. 확인하세요.", Toast.LENGTH_SHORT).show();
                     enroll_error_txt.setText("");
                 }
@@ -123,6 +123,8 @@ public class EnrollActivity extends AppCompatActivity {
         startActivity(i);
         finish();*/
     }
+
+
 
     // 액션바에 뒤로가기 버튼 추가하고 누르면 홈화면으로 돌아가기
     @Override

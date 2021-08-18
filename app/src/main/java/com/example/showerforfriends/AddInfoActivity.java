@@ -214,6 +214,8 @@ public class AddInfoActivity extends AppCompatActivity {
                     select_weight = Integer.parseInt(weight_input.getText().toString());
                     select_tall = Integer.parseInt(tall_input.getText().toString());
 
+                    System.out.println(select_weight + " " + select_tall + " " + select_hair);
+
                     if(select_weight > 0 && select_tall > 0) {
                         AlertDialog.Builder dlg = new AlertDialog.Builder(AddInfoActivity.this);
                         dlg.setTitle("정보 수정");
@@ -224,7 +226,7 @@ public class AddInfoActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 // update database(user info)
                                 String inputInfo = "{" +
-                                        "\"user_id\" : " + 0 + ", " +
+                                        "\"user_id\" : \"" + Amplify.Auth.getCurrentUser().getUserId() + "\", " +
                                         "\"user_hair\" : " + select_hair + ", " +
                                         "\"user_height\" : " + select_tall + ", " +
                                         "\"user_weight\" : " + select_weight + "}";
@@ -233,15 +235,20 @@ public class AddInfoActivity extends AppCompatActivity {
                                 RestOptions options = RestOptions.builder()
                                         .addHeader("Accept", "application/hal+json")
                                         .addHeader("Content-Type", "application/json;charset=UTF-8")
-                                        .addPath("/users/")
+                                        .addPath("/users")
                                         .addBody(inputInfo.getBytes())
                                         .build();
                                 Amplify.API.put(options,
-                                        response -> Log.i("MyAmplifyApp", "PUT succeeded: " + response),
+                                        response -> {
+                                    Log.i("MyAmplifyApp", "PUT succeeded: " + response);
+                                    System.out.println(response.getData().asString());
+                                        },
                                         error -> Log.e("MyAmplifyApp", "PUT failed: ", error));
 
                                 //finishActivity(1);
-                                finish();
+                                /*finish();*/
+                                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+
                             }
                         });
                         dlg.setNegativeButton("아니요", null);

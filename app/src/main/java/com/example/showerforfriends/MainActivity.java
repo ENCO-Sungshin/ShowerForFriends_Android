@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         goToFriendList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), FirendListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), FriendListActivity.class);
                 startActivity(intent);
             }
         });

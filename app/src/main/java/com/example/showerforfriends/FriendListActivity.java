@@ -2,32 +2,21 @@ package com.example.showerforfriends;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.amplifyframework.api.rest.RestOptions;
-import com.amplifyframework.api.rest.RestResponse;
 import com.amplifyframework.core.Amplify;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class FirendListActivity extends AppCompatActivity {
+public class FriendListActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ArrayList<Friend> friendArrayList = new ArrayList<>();
@@ -37,19 +26,24 @@ public class FirendListActivity extends AppCompatActivity {
     Context context;
     String name;
     String array[];
+    Integer user_id_index = 0;
+    Integer user_name_index = 6;
+    Integer user_display_index = 5;
+
     public String res;
     Friend f;
     //Button addFriend;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_firend_list);
+        setContentView(R.layout.activity_friend_list);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        context = getApplicationContext();
+        //context = getApplicationContext();
         recyclerView = (RecyclerView) findViewById(R.id.friendList);
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new EventViewDecoration(40));
+
 
 
         RestOptions options = RestOptions.builder()
@@ -130,9 +124,6 @@ public class FirendListActivity extends AppCompatActivity {
                     friendItem = new Friend[count_value];
 
                     int count = 0;
-                    Integer user_id_index = 0;
-                    Integer user_name_index = 6;
-                    Integer user_display_index = 5;
                     Integer index = 0;
                     for(int i=0; i<userData.length; i++)
                     {
@@ -145,7 +136,7 @@ public class FirendListActivity extends AppCompatActivity {
                             else*/ if (i == count * 7 + user_name_index) {
                                 name = userData[i].substring(1, userData[i].indexOf("}")-1);
                                 System.out.println("name : " + name);
-                                Friend item = new Friend(name, 0, 0);
+                                Friend item = new Friend(name, 0, R.drawable.person1);
                                 friendArrayList.add(item);
                             }
                             /*else if (i == count * 7 + user_display_index) {
@@ -161,23 +152,33 @@ public class FirendListActivity extends AppCompatActivity {
                         }
 
                         System.out.println( userData[i] + " / ");
+                        //recyclerView.setAdapter(friendItemAdapter);
+                        friendItemAdapter = new FriendItemAdapter(context, friendArrayList);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                GridLayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 1);
+                                layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                                //System.out.println(friendArrayList.get(0).getFriend_name());
+                                //friendItemAdapter = new FriendItemAdapter(getApplicationContext(), friendArrayList);
+                                recyclerView.setLayoutManager(layoutManager);
+                                recyclerView.setAdapter(friendItemAdapter);
+                            }
+                        });
 
                     }
-
-                    System.out.println(friendArrayList.get(0).getFriend_name());
-                    //recyclerView.setAdapter(friendItemAdapter);
-                    friendItemAdapter = new FriendItemAdapter(getApplicationContext(), friendArrayList);
 
                    /* System.out.println(friendArrayList.get(0).getFriend_name());*/
                 },
                 error -> Log.e("MyAmplifyApp", "GET failed: ", error));
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        /*LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         //System.out.println(friendArrayList.get(0).getFriend_name());
         //friendItemAdapter = new FriendItemAdapter(getApplicationContext(), friendArrayList);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(friendItemAdapter);
+        recyclerView.setAdapter(friendItemAdapter);*/
 
         /*String data_str = array[0].substring(array[0].indexOf("[")+1);
         System.out.println("data_str : " + data_str);

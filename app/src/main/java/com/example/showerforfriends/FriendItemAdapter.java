@@ -39,7 +39,7 @@ public class FriendItemAdapter extends RecyclerView.Adapter<FriendItemAdapter.Vi
         Friend friendItem = item.get(position);
 
         holder.friend_name.setText(friendItem.getFriend_name());
-        holder.friend_usage.setText(friendItem.getUse_time());
+        holder.friend_usage.setText(friendItem.getUse_time().toString());
         holder.image_friend.setImageResource(friendItem.getFriend_img());
     }
 

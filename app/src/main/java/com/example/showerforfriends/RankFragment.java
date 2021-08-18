@@ -4,13 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.amplifyframework.core.Amplify;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,7 +22,8 @@ import android.widget.Button;
 public class RankFragment extends Fragment {
     HomeActivity homeActivity;
     ViewGroup viewGroup;
-    Button friendList_btn;
+    TextView user_name_rank, user_useTime_rank;
+    Button list_btn;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,14 +83,17 @@ public class RankFragment extends Fragment {
 
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_rank, container, false);
 
-        friendList_btn = (Button) viewGroup.findViewById(R.id.friendlist_btn);
+        list_btn = (Button) viewGroup.findViewById(R.id.list_btn);
+        user_name_rank = (TextView) viewGroup.findViewById(R.id.user_name_rank);
+        user_useTime_rank = (TextView) viewGroup.findViewById(R.id.user_useTime_rank);
 
-        friendList_btn.setOnClickListener(new View.OnClickListener() {
+        user_name_rank.setText(Amplify.Auth.getCurrentUser().getUsername());
+
+        list_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), FirendListActivity.class);
+                Intent intent = new Intent(getActivity(), FriendListActivity.class);
                 startActivity(intent);
-                /*homeActivity.replaceFragment(0);*/
             }
         });
 

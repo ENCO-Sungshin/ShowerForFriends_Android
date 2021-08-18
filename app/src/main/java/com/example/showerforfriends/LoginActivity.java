@@ -120,7 +120,23 @@ public class LoginActivity extends AppCompatActivity {
                 result -> {Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
                     if(result.isSignInComplete() == true) {
                         login_error_txt.setVisibility(View.INVISIBLE);
-                        /*Toast.makeText(getApplicationContext(), "Sign-in done.", Toast.LENGTH_SHORT).show();*/
+                        SignUpState s = (SignUpState) getApplicationContext();
+                        if (s.getState()){//state==true이면
+                            //put user data
+                            String userinfo = "{" +
+                                    "\"user_id\":\"" + Amplify.Auth.getCurrentUser().getUserId() + "\","
+                                    + "\"user_name\":" + "\"" + Amplify.Auth.getCurrentUser().getUsername()+ "\","
+                                    + "\"user_email\":" + "\"" + s.getEmail() + "\""
+                                    + "}";
+                            RestOptions options = RestOptions.builder()
+                                    .addPath("/user")
+                                    .addBody(userinfo.getBytes())
+                                    .build();
+                            Amplify.API.post(options,
+                                    response -> Log.i("MyAmplifyApp", "POST succeeded: " + response),
+                                    error -> Log.e("MyAmplifyApp", "POST failed.", error)
+                            );
+                        }
                         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(i);
                         finish();}
@@ -130,6 +146,7 @@ public class LoginActivity extends AppCompatActivity {
                     login_error_txt.setVisibility(View.VISIBLE);
                 }
         );
+
 
        /* AWSMobileClient.getInstance().signIn(username, password, null, new Callback<SignInResult>() {
             @Override

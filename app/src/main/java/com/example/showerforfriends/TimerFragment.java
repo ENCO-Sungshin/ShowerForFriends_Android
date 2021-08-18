@@ -61,32 +61,6 @@ public class TimerFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*String userinfo="{"+
-                "\"user_id\":"+"\""+Amplify.Auth.getCurrentUser().getUserId()+"\""
-                +"}";
-        RestOptions options = RestOptions.builder()
-                .addPath("/mydisplay")
-                .addBody(userinfo.getBytes())
-                .build();
-        Amplify.API.post(options,
-                response -> Log.i("MyAmplifyApp", "POST succeeded: " + response.getData().asString()),
-                error -> Log.e("MyAmplifyApp", "POST failed.", error)
-        );
-
-//        String userinfo2="{"+
-//                "\"user_id\":"+"\""+1+"\""
-//                +"}";
-        RestOptions options2 = RestOptions.builder()
-                .addPath("/user/2")
-                .build();
-
-        Amplify.API.get(options2,
-                restResponse -> Log.i("MyAmplifyApp", "GET succeeded: " + restResponse.getCode()+restResponse.getData().asString()),
-                apiFailure -> Log.e("MyAmplifyApp", "GET failed.", apiFailure)
-        );
-        Log.i("CurrentUser",Amplify.Auth.getCurrentUser().getUsername());
-        Log.i("CurrentUser",Amplify.Auth.getCurrentUser().getUserId());*/
-
     }
 
     @Override

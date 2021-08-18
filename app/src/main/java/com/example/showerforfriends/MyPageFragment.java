@@ -97,7 +97,9 @@ public class MyPageFragment extends Fragment {
 //        System.out.println(Amplify.Auth.getCurrentUser().getUserId());
 
         String loadInfo = "{" +
-                "\"user_id\" : " + 0 + "}";
+                "\"user_id\" : \"" +  Amplify.Auth.getCurrentUser().getUserId() + "\"}";
+
+        System.out.println("userid : " + Amplify.Auth.getCurrentUser().getUserId());
 
         RestOptions options = RestOptions.builder()
                 .addHeader("Accept","application/hal+json")
@@ -137,13 +139,13 @@ public class MyPageFragment extends Fragment {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            if(height_value.equals("0")) input_tall.setText("");
+                            if(height_value.equals("0")) input_tall.setText("미정");
                             else input_tall.setText(height_value + " cm");
 
-                            if(weight_value.equals("0")) input_weight.setText("");
+                            if(weight_value.equals("0")) input_weight.setText("미정");
                             else input_weight.setText(weight_value + " kg");
 
-                            if(hair_value.equals("0")) input_hairlength.setText("");
+                            if(hair_value.equals("0")) input_hairlength.setText("미정");
                             else {
                                 switch (hair_value) {
                                     case "1":
@@ -203,17 +205,21 @@ public class MyPageFragment extends Fragment {
         changeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), AddInfoActivity.class);
-                //intent.putExtra("username", name_value); // username을 인증 코드 창에서 사용하기 위해
-                if(Integer.parseInt(hair_value) == 0) intent.putExtra("hair", "0");
-                else intent.putExtra("hair", hair_value);
+                if(input_tall.getText().equals("") || input_hairlength.getText().equals("") || input_weight.getText().equals(""))
+                    Toast.makeText(getActivity(), "정보 로딩 중이니 잠시 기다려주세요.", Toast.LENGTH_SHORT).show();
+                else {
+                    Intent intent = new Intent(getContext(), AddInfoActivity.class);
+                    //intent.putExtra("username", name_value); // username을 인증 코드 창에서 사용하기 위해
+                    if (hair_value.equals("0")) intent.putExtra("hair", "0");
+                    else intent.putExtra("hair", hair_value);
 
-                if(Integer.parseInt(height_value) == 0) intent.putExtra("height", "0");
-                else intent.putExtra("height", height_value);
+                    if (height_value.equals("0")) intent.putExtra("height", "0");
+                    else intent.putExtra("height", height_value);
 
-                if(Integer.parseInt(weight_value) == 0) intent.putExtra("weight", "0");
-                else intent.putExtra("weight", weight_value);
-                startActivity(intent);
+                    if (weight_value.equals("0")) intent.putExtra("weight", "0");
+                    else intent.putExtra("weight", weight_value);
+                    startActivity(intent);
+                }
             }
         });
         // Inflate the layout for this fragment

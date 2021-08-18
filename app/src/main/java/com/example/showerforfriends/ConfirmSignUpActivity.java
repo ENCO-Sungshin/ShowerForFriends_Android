@@ -92,7 +92,15 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                                     confirm_email_error_txt.setText("");
                                     //Toast.makeText(getApplicationContext(),"성공적으로 회원가입 되셨습니다..", Toast.LENGTH_SHORT).show();
 
-                                    //put user data
+                                    SignUpState s = (SignUpState) getApplicationContext();
+                                    s.setState(true);
+                                    s.setEmail(email);
+
+                                    Intent i = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
+                                    startActivity(i);
+                                    finish();
+
+                                    /*//put user data
                                     String userinfo = "{" +
                                             "\"user_id\":" + 0 + ","
                                             + "\"user_name\":" + "\"" + username + "\","
@@ -112,7 +120,7 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
 
                                     Intent i = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
                                     startActivity(i);
-                                    finish();
+                                    finish();*/
                                 }
                             },
                             error -> {

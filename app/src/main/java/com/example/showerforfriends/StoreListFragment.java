@@ -13,6 +13,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -156,7 +157,8 @@ public class StoreListFragment extends Fragment {
                 storeDatabase.endTransaction();
             }
         }
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        //LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 1);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerViewAdapter = new StoreListItemAdapter(getContext(), storeArrayList);
         recyclerView.setLayoutManager(layoutManager);
