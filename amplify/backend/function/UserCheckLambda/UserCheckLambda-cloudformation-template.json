@@ -16,17 +16,17 @@
     "s3Key": {
       "Type": "String"
     },
-    "storageUserTableName": {
+    "storageUsersTableName": {
       "Type": "String",
-      "Default": "storageUserTableName"
+      "Default": "storageUsersTableName"
     },
-    "storageUserTableArn": {
+    "storageUsersTableArn": {
       "Type": "String",
-      "Default": "storageUserTableArn"
+      "Default": "storageUsersTableArn"
     },
-    "storageUserTableStreamArn": {
+    "storageUsersTableStreamArn": {
       "Type": "String",
-      "Default": "storageUserTableStreamArn"
+      "Default": "storageUsersTableStreamArn"
     }
   },
   "Conditions": {
@@ -82,14 +82,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "STORAGE_USERTABLE_NAME": {
-              "Ref": "storageUserTableName"
+            "STORAGE_USERSTABLE_NAME": {
+              "Ref": "storageUsersTableName"
             },
-            "STORAGE_USERTABLE_ARN": {
-              "Ref": "storageUserTableArn"
+            "STORAGE_USERSTABLE_ARN": {
+              "Ref": "storageUsersTableArn"
             },
-            "STORAGE_USERTABLE_STREAMARN": {
-              "Ref": "storageUserTableStreamArn"
+            "STORAGE_USERSTABLE_STREAMARN": {
+              "Ref": "storageUsersTableStreamArn"
             }
           }
         },
@@ -219,14 +219,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageUserTableArn"
+                  "Ref": "storageUsersTableArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageUserTableArn"
+                        "Ref": "storageUsersTableArn"
                       },
                       "index/*"
                     ]

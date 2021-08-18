@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -25,14 +25,15 @@
                 android:textAlignment="center"
                 android:background="@drawable/border_bottom"
                 android:gravity="center_horizontal" />
+
             <TextView
                 android:id="@+id/weekly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="주간 사용량"
-                android:textSize="20sp"
+                android:layout_margin="5dp"
                 android:padding="10dp"
-                android:layout_margin="5dp" />
+                android:text="물 사용량"
+                android:textSize="20sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart1"
@@ -45,10 +46,10 @@
                 android:id="@+id/monthly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="월간 사용량"
-                android:textSize="20sp"
+                android:layout_margin="5dp"
                 android:padding="10dp"
-                android:layout_margin="5dp" />
+                android:text="사용한 시간"
+                android:textSize="20sp" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/chart2"

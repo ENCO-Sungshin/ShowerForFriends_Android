@@ -32,7 +32,7 @@ public class MyPageFragment extends Fragment {
     ViewGroup viewGroup;
     Button changeButton;
     ImageButton bookmarkButton;
-    Button logoutButton, registerHW_btn;
+    Button logoutButton, registerHW_btn, app_info_btn;
     TextView user_name, input_hairlength, input_weight, input_tall;
     String hair_data, height_data, weight_data, name_data;
     String hair_value, height_value, weight_value, name_value;
@@ -92,6 +92,7 @@ public class MyPageFragment extends Fragment {
         input_weight = (TextView) viewGroup.findViewById(R.id.input_weight);
         input_tall = (TextView) viewGroup.findViewById(R.id.input_tall);
         registerHW_btn = (Button) viewGroup.findViewById(R.id.registerHW_btn);
+        app_info_btn = (Button) viewGroup.findViewById(R.id.app_info_btn);
 
         user_name.setText(AWSMobileClient.getInstance().getUsername());
 //        System.out.println(Amplify.Auth.getCurrentUser().getUserId());
@@ -199,6 +200,13 @@ public class MyPageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), RegisterHWActivity.class));
+            }
+        });
+
+        app_info_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), AppInfomationActivity.class));
             }
         });
 

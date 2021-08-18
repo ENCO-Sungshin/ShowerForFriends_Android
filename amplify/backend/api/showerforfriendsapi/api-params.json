@@ -1,14 +1,6 @@
 {
     "paths": [
         {
-            "name": "/display",
-            "lambdaFunction": "DisplayLambda",
-            "privacy": {
-                "open": true
-            },
-            "policyResourceName": "/display"
-        },
-        {
             "name": "/test",
             "lambdaFunction": "testLambda",
             "privacy": {
@@ -45,14 +37,55 @@
                 ]
             },
             "policyResourceName": "/info"
+        },
+        {
+            "name": "/display",
+            "lambdaFunction": "DisplaysLambda",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/display"
+        },
+        {
+            "name": "/usage",
+            "lambdaFunction": "WaterUsagesLambda",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET",
+                    "/PUT",
+                    "/PATCH",
+                    "/DELETE"
+                ]
+            },
+            "policyResourceName": "/usage"
         }
     ],
     "resourceName": "showerforfriendsapi",
     "apiName": "showerforfriendsapi",
     "functionArns": [
-        {
-            "lambdaFunction": "DisplayLambda"
-        },
         {
             "lambdaFunction": "testLambda"
         },
@@ -61,23 +94,21 @@
         },
         {
             "lambdaFunction": "UserCheckLambda"
+        },
+        {
+            "lambdaFunction": "DisplaysLambda"
+        },
+        {
+            "lambdaFunction": "WaterUsagesLambda"
         }
     ],
     "privacy": {
-        "auth": 1,
-        "unauth": 1,
+        "auth": 3,
+        "unauth": 3,
         "authRoleName": "amplify-showerforfriendsapp-dev-153130-authRole",
         "unAuthRoleName": "amplify-showerforfriendsapp-dev-153130-unauthRole"
     },
     "dependsOn": [
-        {
-            "category": "function",
-            "resourceName": "DisplayLambda",
-            "attributes": [
-                "Name",
-                "Arn"
-            ]
-        },
         {
             "category": "function",
             "resourceName": "testLambda",
@@ -101,7 +132,23 @@
                 "Name",
                 "Arn"
             ]
+        },
+        {
+            "category": "function",
+            "resourceName": "DisplaysLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        },
+        {
+            "category": "function",
+            "resourceName": "WaterUsagesLambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
         }
     ],
-    "uuid": "0b16289c"
+    "uuid": "9882af46"
 }

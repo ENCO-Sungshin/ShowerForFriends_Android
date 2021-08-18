@@ -16,17 +16,17 @@
     "s3Key": {
       "Type": "String"
     },
-    "storageUsersTableName": {
+    "storageWaterUsagesTableName": {
       "Type": "String",
-      "Default": "storageUsersTableName"
+      "Default": "storageWaterUsagesTableName"
     },
-    "storageUsersTableArn": {
+    "storageWaterUsagesTableArn": {
       "Type": "String",
-      "Default": "storageUsersTableArn"
+      "Default": "storageWaterUsagesTableArn"
     },
-    "storageUsersTableStreamArn": {
+    "storageWaterUsagesTableStreamArn": {
       "Type": "String",
-      "Default": "storageUsersTableStreamArn"
+      "Default": "storageWaterUsagesTableStreamArn"
     }
   },
   "Conditions": {
@@ -59,12 +59,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "UserDataLambda",
+            "WaterUsagesLambda",
             {
               "Fn::Join": [
                 "",
                 [
-                  "UserDataLambda",
+                  "WaterUsagesLambda",
                   "-",
                   {
                     "Ref": "env"
@@ -82,14 +82,14 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "STORAGE_USERSTABLE_NAME": {
-              "Ref": "storageUsersTableName"
+            "STORAGE_WATERUSAGESTABLE_NAME": {
+              "Ref": "storageWaterUsagesTableName"
             },
-            "STORAGE_USERSTABLE_ARN": {
-              "Ref": "storageUsersTableArn"
+            "STORAGE_WATERUSAGESTABLE_ARN": {
+              "Ref": "storageWaterUsagesTableArn"
             },
-            "STORAGE_USERSTABLE_STREAMARN": {
-              "Ref": "storageUsersTableStreamArn"
+            "STORAGE_WATERUSAGESTABLE_STREAMARN": {
+              "Ref": "storageWaterUsagesTableStreamArn"
             }
           }
         },
@@ -110,12 +110,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "showerforfriendsappLambdaRole3b8c5695",
+            "showerforfriendsappLambdaRoled48ff62a",
             {
               "Fn::Join": [
                 "",
                 [
-                  "showerforfriendsappLambdaRole3b8c5695",
+                  "showerforfriendsappLambdaRoled48ff62a",
                   "-",
                   {
                     "Ref": "env"
@@ -219,14 +219,14 @@
               ],
               "Resource": [
                 {
-                  "Ref": "storageUsersTableArn"
+                  "Ref": "storageWaterUsagesTableArn"
                 },
                 {
                   "Fn::Join": [
                     "/",
                     [
                       {
-                        "Ref": "storageUsersTableArn"
+                        "Ref": "storageWaterUsagesTableArn"
                       },
                       "index/*"
                     ]

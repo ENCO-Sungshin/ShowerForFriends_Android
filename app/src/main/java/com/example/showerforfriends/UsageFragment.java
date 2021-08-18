@@ -82,6 +82,18 @@ public class UsageFragment extends Fragment {
         lineChart1 = (LineChart) viewGroup.findViewById(R.id.chart1);
         lineChart2 = (LineChart) viewGroup.findViewById(R.id.chart2);
 
+        /*String res = "Item:[{\"user_id\":\"2a0d7af9-5f46-47bb-8357-b00d6c09b65f\",\"waterUsage_id\":\"1629273953\",\"timeStamp\":\"2021-08-18 17-05\",\"time_count\":1,\"totalAmount\":3272}]";
+
+        res = res.substring(res.indexOf("[") + 2, res.indexOf("]")-2);
+        System.out.println(res);
+        Integer userId_index = res.indexOf("\"user_id\"");
+        String userId_data = res.substring(userId_index, res.substring(userId_index).indexOf(",") + userId_index);
+        String userId_value = userId_data.substring(userId_data.indexOf(":") + 1);
+        System.out.println(userId_value);*/
+
+
+
+
         List<Entry> entries = new ArrayList<Entry>();
         entries.add(new Entry(1, 327));
         entries.add(new Entry(2, 510));
@@ -91,7 +103,7 @@ public class UsageFragment extends Fragment {
         entries.add(new Entry(6, 523));
         entries.add(new Entry(7, 500));
 
-        LineDataSet lineDataSet1 = new LineDataSet(entries, "물 사용량 (L)");
+        LineDataSet lineDataSet1 = new LineDataSet(entries, "물 (L)");
         lineDataSet1.setLineWidth(2);
         lineDataSet1.setCircleRadius(6);
         lineDataSet1.setCircleColor(Color.parseColor("#FFA1B4DC"));
@@ -151,7 +163,7 @@ public class UsageFragment extends Fragment {
 
 
 
-        LineDataSet lineDataSet2 = new LineDataSet(entries2, "물 사용량 (L)");
+        LineDataSet lineDataSet2 = new LineDataSet(entries2, "시간 (분)");
         lineDataSet2.setLineWidth(2);
         lineDataSet2.setCircleRadius(6);
         lineDataSet2.setCircleColor(Color.parseColor("#FFA1B4DC"));

@@ -1,0 +1,5 @@
+{
+    "tableName": "DisplaysTable",
+    "partitionKeyName": "display_id",
+    "partitionKeyType": "S"
+}

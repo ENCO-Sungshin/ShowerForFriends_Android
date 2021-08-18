@@ -19,27 +19,35 @@
       "function": {
         "UsersLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
-          "s3Key": "amplify-builds/UsersLambda-6f6b67677a4166564638-build.zip"
+          "s3Key": "amplify-builds/UsersLambda-2f4f7a6b355763507a52-build.zip"
         },
         "getDisplayLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
-          "s3Key": "amplify-builds/getDisplayLambda-553472437a4253657570-build.zip"
+          "s3Key": "amplify-builds/getDisplayLambda-2f70634548414a586371-build.zip"
         },
         "DisplayLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
-          "s3Key": "amplify-builds/DisplayLambda-52554f46503339725949-build.zip"
+          "s3Key": "amplify-builds/DisplayLambda-37424d73634d69754358-build.zip"
         },
         "testLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
-          "s3Key": "amplify-builds/testLambda-4e726d4144502f643461-build.zip"
+          "s3Key": "amplify-builds/testLambda-49504879337177674e41-build.zip"
         },
         "UserDataLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
-          "s3Key": "amplify-builds/UserDataLambda-42593545493954354662-build.zip"
+          "s3Key": "amplify-builds/UserDataLambda-79513932314f71396d73-build.zip"
         },
         "UserCheckLambda": {
           "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
-          "s3Key": "amplify-builds/UserCheckLambda-4b465a504e4458556972-build.zip"
+          "s3Key": "amplify-builds/UserCheckLambda-4f3075395242714a4573-build.zip"
+        },
+        "DisplaysLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/DisplaysLambda-7a4f4d6f747245755573-build.zip"
+        },
+        "WaterUsagesLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/WaterUsagesLambda-425a562b52693841714e-build.zip"
         }
       }
     }

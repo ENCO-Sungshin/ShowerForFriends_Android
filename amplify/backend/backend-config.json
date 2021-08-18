@@ -39,6 +39,14 @@
     "UsersTable": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
+    },
+    "DisplaysTable": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
+    },
+    "WaterUsagesTable": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
     }
   },
   "function": {
@@ -59,6 +67,15 @@
         {
           "category": "storage",
           "resourceName": "DisplayTable",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        },
+        {
+          "category": "storage",
+          "resourceName": "UsersTable",
           "attributes": [
             "Name",
             "Arn",
@@ -131,7 +148,7 @@
       "dependsOn": [
         {
           "category": "storage",
-          "resourceName": "UserTable",
+          "resourceName": "UsersTable",
           "attributes": [
             "Name",
             "Arn",
@@ -147,7 +164,48 @@
       "dependsOn": [
         {
           "category": "storage",
-          "resourceName": "UserTable",
+          "resourceName": "UsersTable",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
+    },
+    "DisplaysLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "UsersTable",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        },
+        {
+          "category": "storage",
+          "resourceName": "DisplaysTable",
+          "attributes": [
+            "Name",
+            "Arn",
+            "StreamArn"
+          ]
+        }
+      ]
+    },
+    "WaterUsagesLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "WaterUsagesTable",
           "attributes": [
             "Name",
             "Arn",
@@ -162,14 +220,6 @@
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "DisplayLambda",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        },
         {
           "category": "function",
           "resourceName": "testLambda",
@@ -189,6 +239,22 @@
         {
           "category": "function",
           "resourceName": "UserCheckLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "DisplaysLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        },
+        {
+          "category": "function",
+          "resourceName": "WaterUsagesLambda",
           "attributes": [
             "Name",
             "Arn"

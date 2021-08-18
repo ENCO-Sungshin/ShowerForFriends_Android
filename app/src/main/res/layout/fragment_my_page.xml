@@ -24,7 +24,7 @@
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="match_parent"
-                android:layout_height="500px"
+                android:layout_height="400px"
                 android:src="@drawable/person2" />
 
             <Space
@@ -34,7 +34,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="211dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="10dp"
@@ -47,14 +47,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/button_color_drawable"
-                    android:text="정보 수정" />
+                    android:text="정보설정" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <TextView
@@ -86,7 +88,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <TextView
@@ -95,13 +98,13 @@
                         android:layout_height="match_parent"
                         android:layout_weight="3"
                         android:gravity="center_vertical"
-                        android:text="userInfo"
+                        android:text="UserInfo"
                         android:textColor="@color/app_color_2"
                         android:textSize="20sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
@@ -114,8 +117,10 @@
                         <TextView
                             android:id="@+id/userinfo_txt"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="2"
                             android:gravity="center"
                             android:text="* 미정으로 표시된다면 본인 값으로 설정해주세요. *"
                             android:textAlignment="center"
@@ -124,86 +129,94 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="horizontal">
+                            android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/hairlength"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:text="머리 기장 : "
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/app_color_2"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:id="@+id/input_hairlength"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/app_color_1"
-                                android:textSize="19sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
+                                android:gravity="center"
+                                android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="horizontal">
+                                <TextView
+                                    android:id="@+id/hairlength"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="머리 기장 : "
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/app_color_2"
+                                    android:textSize="18sp" />
 
-                            <TextView
-                                android:id="@+id/weight_txt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:text="몸무게 : "
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/app_color_2"
-                                android:textSize="18sp" />
+                                <TextView
+                                    android:id="@+id/input_hairlength"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/app_color_1"
+                                    android:textSize="19sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/input_weight"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/app_color_1"
-                                android:textSize="19sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/tall"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="2"
-                                android:text="신장 : "
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/app_color_2"
-                                android:textSize="18sp" />
-
-                            <TextView
-                                android:id="@+id/input_tall"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:textAlignment="textEnd"
-                                android:textColor="@color/app_color_1"
-                                android:textSize="19sp"
-                                android:textStyle="bold" />
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/weight_txt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="몸무게 : "
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/app_color_2"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/input_weight"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/app_color_1"
+                                    android:textSize="19sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2"
+                                    android:text="신장 : "
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/app_color_2"
+                                    android:textSize="18sp" />
+
+                                <TextView
+                                    android:id="@+id/input_tall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:textAlignment="textEnd"
+                                    android:textColor="@color/app_color_1"
+                                    android:textSize="19sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -274,14 +287,14 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/notice_btn"
+                    android:id="@+id/app_info_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_color_drawable"
-                    android:text="공지사항" />
+                    android:text="Shower For Earth 소개" />
 
                 <Button
                     android:id="@+id/registerHW_btn"

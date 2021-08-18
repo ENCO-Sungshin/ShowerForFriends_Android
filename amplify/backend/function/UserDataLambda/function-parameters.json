@@ -1,7 +1,7 @@
 {
   "permissions": {
     "storage": {
-      "UserTable": [
+      "UsersTable": [
         "create",
         "read",
         "update",
