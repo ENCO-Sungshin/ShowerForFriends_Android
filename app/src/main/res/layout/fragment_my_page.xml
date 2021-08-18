@@ -150,11 +150,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:text="머리 기장 : "
                                     android:textAlignment="textEnd"
                                     android:textColor="@color/app_color_2"
-                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
-                                    android:textSize="18sp" />
+                                    android:textSize="17sp" />
 
                                 <TextView
                                     android:id="@+id/input_hairlength"
@@ -180,11 +180,11 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:text="몸무게 : "
                                     android:textAlignment="textEnd"
-                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textColor="@color/app_color_2"
-                                    android:textSize="18sp" />
+                                    android:textSize="17sp" />
 
                                 <TextView
                                     android:id="@+id/input_weight"
@@ -210,10 +210,10 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
                                     android:layout_weight="2"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:text="신장 : "
                                     android:textAlignment="textEnd"
                                     android:textColor="@color/app_color_2"
-                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textSize="18sp" />
 
                                 <TextView
