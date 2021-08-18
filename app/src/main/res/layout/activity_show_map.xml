@@ -21,11 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:fontFamily="serif"
             android:text="@string/shower_for_friends"
-            android:textAllCaps="true"
-            android:textColor="#0000a0"
-            android:textSize="25sp" />
+            android:textAllCaps="false"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+            android:textColor="@color/app_color_1"
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 

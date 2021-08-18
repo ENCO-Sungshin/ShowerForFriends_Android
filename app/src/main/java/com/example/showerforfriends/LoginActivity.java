@@ -51,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         enrollButton_login = (TextView) findViewById(R.id.enrollButton_login);
-        home_btn = (Button) findViewById(R.id.home_btn);
         loginButton = (Button) findViewById(R.id.loginButton);
         login_id = findViewById(R.id.login_id);
         login_pw = findViewById(R.id.login_password);
@@ -120,26 +119,33 @@ public class LoginActivity extends AppCompatActivity {
                 result -> {Log.i("AuthQuickstart", result.isSignInComplete() ? "Sign in succeeded" : "Sign in not complete");
                     if(result.isSignInComplete() == true) {
                         login_error_txt.setVisibility(View.INVISIBLE);
-                        SignUpState s = (SignUpState) getApplicationContext();
-                        if (s.getState()){//state==true이면
-                            //put user data
-                            String userinfo = "{" +
-                                    "\"user_id\":\"" + Amplify.Auth.getCurrentUser().getUserId() + "\","
-                                    + "\"user_name\":" + "\"" + Amplify.Auth.getCurrentUser().getUsername()+ "\","
-                                    + "\"user_email\":" + "\"" + s.getEmail() + "\""
-                                    + "}";
-                            RestOptions options = RestOptions.builder()
-                                    .addPath("/user")
-                                    .addBody(userinfo.getBytes())
-                                    .build();
-                            Amplify.API.post(options,
-                                    response -> Log.i("MyAmplifyApp", "POST succeeded: " + response),
-                                    error -> Log.e("MyAmplifyApp", "POST failed.", error)
-                            );
-                        }
+                        //SignUpState s = (SignUpState) getApplicationContext();
+                        /*System.out.println(s.getState());
+                        System.out.println(s.getUsername());*/
+
+                        /*if (s.getState() && s.getUsername()!=null){//state==true이면
+                            if(Amplify.Auth.getCurrentUser().getUsername().equals(s.getUsername())) {
+                                //put user data
+                                String userinfo = "{" +
+                                        "\"user_id\":\"" + Amplify.Auth.getCurrentUser().getUserId() + "\","
+                                        + "\"user_name\":" + "\"" + Amplify.Auth.getCurrentUser().getUsername() + "\","
+                                        + "\"user_email\":" + "\"" + s.getEmail() + "\""
+                                        + "}";
+                                RestOptions options = RestOptions.builder()
+                                        .addPath("/user")
+                                        .addBody(userinfo.getBytes())
+                                        .build();
+                                Amplify.API.post(options,
+                                        response -> Log.i("MyAmplifyApp", "POST succeeded: " + response),
+                                        error -> Log.e("MyAmplifyApp", "POST failed.", error)
+                                );
+                                s.setState(false);
+                            }
+                        }*/
                         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
                         startActivity(i);
-                        finish();}
+                        finish();
+                    }
                 },
                 error -> {Log.e("AuthQuickstart", error.toString());
                     //Toast.makeText(this, "로그인 정보가 맞지 않습니다.", Toast.LENGTH_SHORT).show();

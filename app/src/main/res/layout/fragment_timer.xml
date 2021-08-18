@@ -19,13 +19,14 @@
             android:id="@+id/beforeStartImg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="120dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="100dp"
+            android:layout_marginRight="120dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="2"
             android:contentDescription="@string/beforestartingimg"
-            app:srcCompat="@drawable/shower_for_friends_dolphin" />
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+            app:srcCompat="@drawable/shower_for_earth_dolphin" />
 
         <Button
             android:id="@+id/button"

@@ -126,7 +126,7 @@ public class StoreListFragment extends Fragment {
         try {
             cursor.moveToFirst();
             while(!cursor.isAfterLast()) {
-                addGroupItem(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getDouble(5), cursor.getDouble(6));
+                addGroupItem(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getDouble(5), cursor.getDouble(6), cursor.getInt(7));
                 /*Log.i("Cursor Bookmark : ", cursor.getString(1) + " " + cursor.getString(7));*/
                 cursor.moveToNext();
             }
@@ -207,8 +207,8 @@ public class StoreListFragment extends Fragment {
         return viewGroup;
     }
 
-    public void addGroupItem(int store_id, String store_name, String store_info, String store_location, String store_uri, double store_pos1, double store_pos2){
-        Store item = new Store(store_id, store_name, store_info, store_location, store_uri, store_pos1, store_pos2);
+    public void addGroupItem(int store_id, String store_name, String store_info, String store_location, String store_uri, double store_pos1, double store_pos2, Integer store_img){
+        Store item = new Store(store_id, store_name, store_info, store_location, store_uri, store_pos1, store_pos2, store_img);
         storeArrayList.add(item);
     }
 
@@ -240,6 +240,7 @@ public class StoreListFragment extends Fragment {
         store_value.put(SQLiteHelper.COLUMN_URI, storeURI[0]);
         store_value.put(SQLiteHelper.COLUMN_POS1, "37.55368");
         store_value.put(SQLiteHelper.COLUMN_POS2, "126.91160");
+        store_value.put(SQLiteHelper.COLUMN_IMG, R.drawable.store1);
         /*store_value.put(SQLiteHelper.COLUMN_BOOKMARK, "false");*/
         storeDatabase.insert(SQLiteHelper.TABLE_NAME, null, store_value);
 
@@ -251,6 +252,7 @@ public class StoreListFragment extends Fragment {
         store_value.put(SQLiteHelper.COLUMN_URI, storeURI[1]);
         store_value.put(SQLiteHelper.COLUMN_POS1, "37.56979");
         store_value.put(SQLiteHelper.COLUMN_POS2, "126.91335");
+        store_value.put(SQLiteHelper.COLUMN_IMG, R.drawable.store2);
         /*store_value.put(SQLiteHelper.COLUMN_BOOKMARK, "false");*/
         storeDatabase.insert(SQLiteHelper.TABLE_NAME, null, store_value);
 
@@ -262,6 +264,7 @@ public class StoreListFragment extends Fragment {
         store_value.put(SQLiteHelper.COLUMN_URI, storeURI[2]);
         store_value.put(SQLiteHelper.COLUMN_POS1, "37.49705");
         store_value.put(SQLiteHelper.COLUMN_POS2, "127.02375");
+        store_value.put(SQLiteHelper.COLUMN_IMG, R.drawable.store1);
         /*store_value.put(SQLiteHelper.COLUMN_BOOKMARK, "false");*/
         storeDatabase.insert(SQLiteHelper.TABLE_NAME, null, store_value);
     }
@@ -274,7 +277,8 @@ public class StoreListFragment extends Fragment {
                 SQLiteHelper.COLUMN_LOCATION,
                 SQLiteHelper.COLUMN_URI,
                 SQLiteHelper.COLUMN_POS1,
-                SQLiteHelper.COLUMN_POS2/*,
+                SQLiteHelper.COLUMN_POS2,
+                SQLiteHelper.COLUMN_IMG/*,
                 SQLiteHelper.COLUMN_BOOKMARK*/
         };
         String sorting = SQLiteHelper.COLUMN_ID + " desc";

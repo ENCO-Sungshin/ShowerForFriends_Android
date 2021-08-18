@@ -21,10 +21,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:fontFamily="serif"
             android:text="@string/shower_for_friends"
             android:textAllCaps="true"
             android:textColor="@color/app_color_1"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:textSize="25sp" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -45,18 +45,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/info_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                android:gravity="center"
                 android:text="당신의 정보를 입력해주세요."
                 android:textSize="20sp" />
 
@@ -71,13 +73,18 @@
                     android:id="@+id/hair_len"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="머리 길이"
+                    android:textColor="@color/app_color_1"
                     android:textSize="16sp" />
 
                 <RadioGroup
                     android:id="@+id/hairgroup"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
@@ -86,6 +93,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:text="짧은 머리" />
 
                     <RadioButton
@@ -93,6 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:text="귀 위" />
 
                     <RadioButton
@@ -100,6 +109,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:text="귀 ~ 어깨 사이" />
 
                     <RadioButton
@@ -107,6 +117,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:text="어깨 아래 ~ 가슴" />
 
                     <RadioButton
@@ -114,6 +125,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:buttonTint="@color/button_color"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:text="가슴 아래" />
                 </RadioGroup>
 
@@ -130,8 +142,12 @@
                     android:id="@+id/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="몸무게"
+                    android:textColor="@color/app_color_1"
                     android:textSize="16sp" />
 
                 <LinearLayout
@@ -150,8 +166,9 @@
                         android:layout_marginRight="5dp"
                         android:backgroundTint="@color/app_color_2"
                         android:ems="10"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:gravity="right"
-                        android:hint="60"
+                        android:hint="50"
                         android:inputType="textPersonName"
                         android:textColor="@color/app_color_1" />
 
@@ -164,6 +181,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:text="kg"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:textSize="15sp" />
 
                 </LinearLayout>
@@ -180,8 +198,12 @@
                     android:id="@+id/tall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="키"
+                    android:textColor="@color/app_color_1"
                     android:textSize="16sp" />
 
                 <LinearLayout
@@ -202,6 +224,7 @@
                         android:gravity="right"
                         android:hint="160"
                         android:inputType="textPersonName"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:textColor="@color/app_color_1" />
 
                     <TextView
@@ -213,6 +236,7 @@
                         android:layout_marginEnd="10dp"
                         android:layout_marginRight="10dp"
                         android:text="cm"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -225,13 +249,14 @@
         android:id="@+id/store_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/button_color_drawable"
+        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
         android:text="저장" />
 
 

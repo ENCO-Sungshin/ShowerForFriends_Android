@@ -6,22 +6,29 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".SignUpState"
         android:allowBackup="true"
-        android:icon="@drawable/shower_for_earth_icon"
+        android:icon="@mipmap/shower_for_earth_icon"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AppInfomationActivity"></activity>
-        <activity android:name=".RegisterHWActivity" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="000bc603aa4fc49054b385e0b0fddfbd" />
 
+        <activity android:name=".SplashGifActivity"
+            android:theme="@style/SplashTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AppInfomationActivity" />
+        <activity android:name=".RegisterHWActivity" />
         <activity android:name=".ConfirmSignUpActivity" />
         <activity android:name=".ShowMapActivity" />
         <activity android:name=".AddInfoActivity" />
@@ -34,15 +41,6 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".EnrollActivity" />
-        <activity
-            android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

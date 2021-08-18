@@ -49,7 +49,7 @@
             android:layout_width="231dp"
             android:layout_height="210dp"
             android:contentDescription="@string/beforestartingimg"
-            app:srcCompat="@drawable/shower_for_friends_dolphin" />
+            app:srcCompat="@drawable/shower_for_earth_dolphin" />
 
         <Button
             android:id="@+id/button"

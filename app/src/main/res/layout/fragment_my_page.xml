@@ -51,6 +51,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/button_color_drawable"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="정보설정" />
 
                 <LinearLayout
@@ -67,6 +68,7 @@
                         android:gravity="center_vertical"
                         android:text="User ID"
                         android:textColor="@color/app_color_2"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:textSize="20sp" />
 
                     <TextView
@@ -82,6 +84,7 @@
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:textColor="@color/app_color_1"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:textSize="25sp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -100,6 +103,7 @@
                         android:gravity="center_vertical"
                         android:text="UserInfo"
                         android:textColor="@color/app_color_2"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                         android:textSize="20sp" />
 
                     <LinearLayout
@@ -124,6 +128,7 @@
                             android:gravity="center"
                             android:text="* 미정으로 표시된다면 본인 값으로 설정해주세요. *"
                             android:textAlignment="center"
+                            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                             android:textColor="@color/app_color_3"
                             android:textSize="10sp" />
 
@@ -148,6 +153,7 @@
                                     android:text="머리 기장 : "
                                     android:textAlignment="textEnd"
                                     android:textColor="@color/app_color_2"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textSize="18sp" />
 
                                 <TextView
@@ -157,6 +163,7 @@
                                     android:layout_weight="1"
                                     android:textAlignment="textEnd"
                                     android:textColor="@color/app_color_1"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textSize="19sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -175,6 +182,7 @@
                                     android:layout_weight="2"
                                     android:text="몸무게 : "
                                     android:textAlignment="textEnd"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textColor="@color/app_color_2"
                                     android:textSize="18sp" />
 
@@ -185,6 +193,7 @@
                                     android:layout_weight="1"
                                     android:textAlignment="textEnd"
                                     android:textColor="@color/app_color_1"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textSize="19sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -204,6 +213,7 @@
                                     android:text="신장 : "
                                     android:textAlignment="textEnd"
                                     android:textColor="@color/app_color_2"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textSize="18sp" />
 
                                 <TextView
@@ -213,6 +223,7 @@
                                     android:layout_weight="1"
                                     android:textAlignment="textEnd"
                                     android:textColor="@color/app_color_1"
+                                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                                     android:textSize="19sp"
                                     android:textStyle="bold" />
                             </LinearLayout>
@@ -294,6 +305,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_color_drawable"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="Shower For Earth 소개" />
 
                 <Button
@@ -304,6 +316,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_color_drawable"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="기기 등록" />
 
                 <Button
@@ -336,6 +349,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_color_drawable"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="로그아웃" />
 
                 <Button

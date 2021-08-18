@@ -24,9 +24,7 @@ public class StoreListItemAdapter extends RecyclerView.Adapter<StoreListItemAdap
 
     ArrayList<Store> item = new ArrayList<Store>();
     Context context;
-    /*SQLiteDatabase sqLiteDatabase;
-    SQLiteHelper sqLiteHelper;
-*/
+
     public StoreListItemAdapter(Context context, ArrayList<Store> storeListItems)
     {
         this.context = context;
@@ -126,7 +124,6 @@ public class StoreListItemAdapter extends RecyclerView.Adapter<StoreListItemAdap
             super(itemView);
 
             // 화면에 내용 넣기
-            storeID = (TextView) itemView.findViewById(R.id.storeID);
             storeName = (TextView) itemView.findViewById(R.id.storeName);
             storeIntro = (TextView) itemView.findViewById(R.id.storeInfo);
             storeLocation = (TextView) itemView.findViewById(R.id.storeLocation);
@@ -151,12 +148,13 @@ public class StoreListItemAdapter extends RecyclerView.Adapter<StoreListItemAdap
         }
 
         public void onBind(Store item) {
-            storeID.setText(Integer.toString(item.getStore_id()));
+            /*storeID.setText(Integer.toString(item.getStore_id()));*/
             storeName.setText(item.getStore_name());
             storeIntro.setText(item.getStore_info());
             storeLocation.setText(item.getStore_location());
             storeURL.setText("사이트");
             storeMap.setText("지도");
+            storePicture.setImageResource(item.getStore_img());
 
             /*StoreListFragment.storeDatabase = StoreListFragment.sqLiteHelper.getReadableDatabase();
             StoreListFragment.storeDatabase.beginTransaction();

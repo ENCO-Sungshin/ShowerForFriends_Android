@@ -27,12 +27,6 @@
         android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/storeID"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible" />
-
         <ImageView
             android:id="@+id/storePicture"
             android:layout_width="match_parent"
@@ -48,6 +42,7 @@
             android:id="@+id/storeName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
@@ -64,6 +59,7 @@
             android:id="@+id/storeInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
@@ -78,6 +74,7 @@
             android:id="@+id/storeLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
@@ -95,23 +92,9 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/storeBookmark"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:text="♡"
-                android:visibility="gone" />
-
-            <Button
                 android:id="@+id/storeMap"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
@@ -127,6 +110,7 @@
                 android:id="@+id/storeURI"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:layout_marginStart="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"

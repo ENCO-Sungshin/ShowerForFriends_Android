@@ -49,6 +49,11 @@ dependencies {
     // kakao map
     implementation files('libs\\libDaumMapAndroid.jar')
     compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
+    /*compile 'pl.droidsonroids.gif:android-gif-drawable:1.2.3'*/
+
+    // gif splash screen
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
     // Support for Java 8 features
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'

@@ -21,11 +21,12 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:fontFamily="serif"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:text="@string/shower_for_friends"
             android:textAllCaps="true"
             android:textColor="@color/app_color_1"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -44,7 +45,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:contentDescription="@string/enrollimage_bear"
-        app:srcCompat="@drawable/shower_for_friends_polar_bear" />
+        app:srcCompat="@drawable/shower_for_earth_bear_hi" />
 
     <ScrollView
         android:id="@+id/enroll_part"
@@ -66,6 +67,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
@@ -77,6 +79,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:text="@string/name_enroll"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -85,6 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="* 아이디는 친구목록에 표시됩니다 *"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textAlignment="textEnd"
                     android:textColor="@color/app_color_3"
                     android:textSize="12sp" />
@@ -98,6 +102,7 @@
                 android:layout_marginBottom="5dp"
                 android:autofillHints=""
                 android:backgroundTint="@color/app_color_2"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:ems="10"
                 android:hint="@string/name_enroll"
                 android:inputType="textPersonName"
@@ -112,6 +117,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="@string/nickname_enroll"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:textColor="#000000"
                 android:textSize="18sp"
                 android:visibility="gone" />
@@ -126,6 +132,7 @@
                 android:backgroundTint="@color/app_color_2"
                 android:ems="10"
                 android:hint="@string/nickname_enroll"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:inputType="textPersonName"
                 android:textColor="@color/app_color_1"
                 android:visibility="gone" />
@@ -146,6 +153,7 @@
                     android:layout_marginRight="6dp"
                     android:layout_marginBottom="5dp"
                     android:text="@string/emailID_enroll"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textColor="#000000"
                     android:textSize="18sp" />
 
@@ -158,6 +166,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp"
                     android:background="@drawable/button_color_drawable"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="@string/checkUserInfo_btn"
                     android:visibility="gone" />
 
@@ -173,20 +182,39 @@
                 android:backgroundTint="@color/app_color_2"
                 android:ems="10"
                 android:hint="@string/putEmailID_enroll"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:inputType="textWebEmailAddress"
                 android:textColor="@color/app_color_1" />
 
-            <TextView
-                android:id="@+id/password_enroll"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/password_enroll"
-                android:textColor="#000000"
-                android:textSize="18sp" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/password_enroll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:text="@string/password_enroll"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="* 비밀번호 8자리 이상 *"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/app_color_3"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/putPassword_enroll"
@@ -198,6 +226,7 @@
                 android:backgroundTint="@color/app_color_2"
                 android:ems="10"
                 android:hint="@string/putPassword_enroll"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:inputType="textPassword"
                 android:textColor="@color/app_color_1" />
 
@@ -210,6 +239,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:text="@string/checkPassword_enroll"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -224,12 +254,14 @@
                 android:ems="10"
                 android:hint="@string/checkPassword_enroll"
                 android:inputType="textPassword"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:textColor="@color/app_color_1" />
 
             <TextView
                 android:id="@+id/enroll_error_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:textAlignment="center"
                 android:textColor="#8d192b"  />
 
@@ -240,6 +272,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="0dp"
                 android:background="@drawable/button_color_drawable"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:text="@string/enroll" />
         </LinearLayout>
     </ScrollView>

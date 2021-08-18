@@ -11,50 +11,95 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/Usage"
+                android:id="@+id/Usage_txt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Usage of Water"
-                android:textSize="25sp"
-                android:padding="10dp"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="사용량 및 시간 통계"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:textAlignment="center"
-                android:background="@drawable/border_bottom"
-                android:gravity="center_horizontal" />
+                android:textColor="@color/app_color_1"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/weekly"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:text="물 사용량"
-                android:textSize="20sp" />
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart1"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="@drawable/border_bottom"
-                android:layout_margin="5dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/monthly"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:padding="10dp"
-                android:text="사용한 시간"
-                android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/water_usage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="물 사용량 그래프"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:textColor="@color/app_color_1"
+                        android:textSize="20sp" />
 
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/chart2"
-                android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart1"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_bottom" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/water_usage_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:padding="10dp"
+                        android:text="사용한 시간 그래프"
+                        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
+                        android:textColor="@color/app_color_1"
+                        android:textSize="20sp" />
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/chart2"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/border_bottom" />
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

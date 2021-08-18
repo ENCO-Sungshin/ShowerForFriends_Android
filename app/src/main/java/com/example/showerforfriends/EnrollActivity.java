@@ -100,10 +100,14 @@ public class EnrollActivity extends AppCompatActivity {
                 result -> { Log.i("AuthQuickStart", "Result: " + result.toString());
                     //Toast.makeText(getApplicationContext(), "인증 메일을 보냈습니다." , Toast.LENGTH_SHORT).show();
 
+                    String userid = result.getUser().getUserId();
+
+
                     // 이메일에 문제가 없으면 인증 코드 창으로 이동
                     Intent i = new Intent(EnrollActivity.this, ConfirmSignUpActivity.class);
                     i.putExtra("username", username); // username을 인증 코드 창에서 사용하기 위해
                     i.putExtra("email",email);
+                    i.putExtra("userId", userid);
                     i.putExtra("password", password);
                     startActivity(i);
                     finish();

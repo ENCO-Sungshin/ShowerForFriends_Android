@@ -12,7 +12,7 @@
         android:layout_height="216dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/loginimage_bear"
-        app:srcCompat="@drawable/shower_for_friends_polar_bear" />
+        app:srcCompat="@drawable/shower_for_earth_bear" />
 
     <TextView
         android:id="@+id/textView2"
@@ -23,6 +23,7 @@
         android:layout_marginBottom="15dp"
         android:text="@string/shower_for_friends"
         android:textColor="#88BADF"
+        android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -55,6 +56,7 @@
             android:ems="10"
             android:hint="@string/login_id"
             android:inputType="textWebEmailAddress"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:textAllCaps="true"
             android:textColor="#88BADF" />
 
@@ -71,6 +73,7 @@
             android:autofillHints=""
             android:backgroundTint="#B1D0E2"
             android:ems="10"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:hint="@string/login_password"
             android:inputType="textPassword"
             android:textColor="#88BADF" />
@@ -84,6 +87,7 @@
             android:layout_marginRight="13dp"
             android:layout_marginBottom="5dp"
             android:text="* 로그인 정보가 맞지 않습니다. *"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:visibility="invisible"
             android:textAlignment="center"
             android:textColor="#8d192b" />
@@ -98,6 +102,7 @@
             android:layout_marginEnd="14dp"
             android:layout_marginRight="14dp"
             android:layout_marginBottom="5dp"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:background="@drawable/button_color_drawable"
             android:text="@string/loginButton" />
 
@@ -119,17 +124,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:text="@string/enroll"
+            android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
             android:textColor="#C1BFCD" />
-
-        <Button
-            android:id="@+id/home_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/button_color_drawable"
-            android:text="Home"
-            android:visibility="gone" />
 
     </LinearLayout>
 

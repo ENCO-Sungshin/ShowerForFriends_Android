@@ -8,8 +8,9 @@ public class Store {
     String store_uri;
     double store_pos1;
     double store_pos2;
+    int store_img;
 
-    public Store(int store_id, String store_name, String store_info,  String store_location, String store_uri, double store_pos1, double store_pos2)
+    public Store(int store_id, String store_name, String store_info,  String store_location, String store_uri, double store_pos1, double store_pos2, int store_img)
     {
         this.store_id = store_id;
         this.store_name = store_name;
@@ -18,6 +19,7 @@ public class Store {
         this.store_uri = store_uri;
         this.store_pos1 = store_pos1;
         this.store_pos2 = store_pos2;
+        this.store_img = store_img;
     }
 
     public int getStore_id() {
@@ -48,6 +50,10 @@ public class Store {
         return store_pos2;
     }
 
+    public int getStore_img() {
+        return store_img;
+    }
+
     public void setStore_id(int store_id) {
         this.store_id = store_id;
     }
@@ -74,5 +80,9 @@ public class Store {
 
     public void setStore_pos2(double store_pos2) {
         this.store_pos2 = store_pos2;
+    }
+
+    public void setStore_img(int store_img) {
+        this.store_img = store_img;
     }
 }

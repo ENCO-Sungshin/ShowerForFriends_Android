@@ -14,7 +14,7 @@
         android:layout_height="210dp"
         android:layout_gravity="center"
         android:contentDescription="@string/logo"
-        app:srcCompat="@drawable/shower_for_friends_polar_bear" />
+        app:srcCompat="@drawable/shower_for_earth_bear" />
 
     <Button
         android:id="@+id/goToLogin"

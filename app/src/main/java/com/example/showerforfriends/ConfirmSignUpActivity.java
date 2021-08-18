@@ -19,6 +19,7 @@ import com.amazonaws.mobile.client.Callback;
 import com.amazonaws.mobile.client.results.SignInResult;
 import com.amazonaws.mobile.client.results.SignUpResult;
 import com.amazonaws.mobile.client.results.UserCodeDeliveryDetails;
+import com.amazonaws.mobileconnectors.cognitoauth.Auth;
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.rest.RestOptions;
 import com.amplifyframework.auth.AuthUserAttributeKey;
@@ -30,7 +31,7 @@ import com.amplifyframework.core.Amplify;
 public class ConfirmSignUpActivity extends AppCompatActivity {
 
     String TAG = ConfirmSignUpActivity.class.getSimpleName();
-    String username, email, password;
+    String username, email, password, userid;
     /*String username, userPassword;*/
     EditText confirmTxt;
     Button confirm_btn;
@@ -52,9 +53,9 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
         username = bundle.getString("username");
         email = bundle.getString("email");
         password = bundle.getString("password");
+        userid = bundle.getString("userId");
         //TextView.setText(username);
         TextView.setText(email);
-
 
         confirm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,17 +93,18 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                                     confirm_email_error_txt.setText("");
                                     //Toast.makeText(getApplicationContext(),"성공적으로 회원가입 되셨습니다..", Toast.LENGTH_SHORT).show();
 
-                                    SignUpState s = (SignUpState) getApplicationContext();
+                                   /* SignUpState s = (SignUpState) getApplicationContext();
                                     s.setState(true);
+                                    s.setUsername(username);
                                     s.setEmail(email);
 
                                     Intent i = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
                                     startActivity(i);
-                                    finish();
+                                    finish();*/
 
-                                    /*//put user data
+                                    //put user data
                                     String userinfo = "{" +
-                                            "\"user_id\":" + 0 + ","
+                                            "\"user_id\":\"" + userid + "\","
                                             + "\"user_name\":" + "\"" + username + "\","
                                             + "\"user_email\":" + "\"" + email + "\""
                                             + "}";
@@ -118,9 +120,9 @@ public class ConfirmSignUpActivity extends AppCompatActivity {
                                     );
 
 
-                                    Intent i = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
-                                    startActivity(i);
-                                    finish();*/
+                                    Intent intent = new Intent(ConfirmSignUpActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
                                 }
                             },
                             error -> {

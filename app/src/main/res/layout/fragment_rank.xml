@@ -40,6 +40,7 @@
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:textAlignment="textEnd"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textColor="@color/app_color_1"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -53,6 +54,7 @@
                     android:gravity="center"
                     android:text="님의 물 사용 시간 입니다"
                     android:textAlignment="center"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textColor="@color/app_color_3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -80,6 +82,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/app_color_1"
                     android:textSize="50sp"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textStyle="bold" />
 
                 <TextView
@@ -89,6 +92,7 @@
                     android:layout_weight="2"
                     android:text="등급"
                     android:textAlignment="center"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textColor="@color/app_color_1"
                     android:textSize="50sp"
                     android:textStyle="bold" />
@@ -112,6 +116,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="다른 사용자의 사용시간을 확인하세요"
                     android:textAlignment="center"
                     android:textColor="@color/app_color_3"
@@ -127,6 +132,7 @@
                     android:layout_marginBottom="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/button_color_drawable"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:text="사용자 목록" />
             </LinearLayout>
 

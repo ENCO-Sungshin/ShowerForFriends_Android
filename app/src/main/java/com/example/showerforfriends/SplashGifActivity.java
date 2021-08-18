@@ -1,10 +1,12 @@
 package com.example.showerforfriends;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.ImageView;
 
 import com.amazonaws.mobile.client.AWSMobileClient;
 import com.amazonaws.mobile.client.Callback;
@@ -12,15 +14,12 @@ import com.amazonaws.mobile.client.UserStateDetails;
 import com.amplifyframework.AmplifyException;
 import com.amplifyframework.api.aws.AWSApiPlugin;
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin;
-import com.amplifyframework.auth.cognito.AWSCognitoAuthSession;
 import com.amplifyframework.core.Amplify;
-import com.amplifyframework.core.plugin.Plugin;
+import com.bumptech.glide.Glide;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashGifActivity extends AppCompatActivity {
+    private final int SPLASH_DISPLAY_LENGTH = 5000;
 
-    /*public static AWSApiPlugin awsApiPlugin;
-    public static AWSCognitoAuthPlugin awsCognitoAuthPlugin;*/
-    Intent intent;
     private void _initCognito() {
 
        /* Amplify.Auth.fetchAuthSession(
@@ -43,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
                 error -> Log.e("AuthQuickStart", error.toString())
         );*/
         // Add code here
-        if (AWSMobileClient.getInstance().getConfiguration() == null){
+        if (AWSMobileClient.getInstance().getConfiguration() == null) {
             try {
                 Amplify.addPlugin(new AWSApiPlugin());
                 Amplify.addPlugin(new AWSCognitoAuthPlugin());
@@ -56,16 +55,16 @@ public class SplashActivity extends AppCompatActivity {
             AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
                 @Override
                 public void onResult(UserStateDetails userStateDetails) {
-                    switch (userStateDetails.getUserState()){
+                    switch (userStateDetails.getUserState()) {
                         case SIGNED_IN:
                             // Open Main Activity
-                            intent = new Intent(SplashActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(SplashGifActivity.this, HomeActivity.class);
                             startActivity(intent);
                             break;
                         case SIGNED_OUT:
                             //Log.d(TAG, "Do nothing yet");
-                            intent = new Intent(SplashActivity.this, LoginActivity.class);
-                            startActivity(intent);
+                            Intent intent2 = new Intent(SplashGifActivity.this, LoginActivity.class);
+                            startActivity(intent2);
                             break;
                         default:
                             AWSMobileClient.getInstance().signOut();
@@ -84,16 +83,16 @@ public class SplashActivity extends AppCompatActivity {
             AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
                 @Override
                 public void onResult(UserStateDetails userStateDetails) {
-                    switch (userStateDetails.getUserState()){
+                    switch (userStateDetails.getUserState()) {
                         case SIGNED_IN:
                             // Open Main Activity
-                            intent = new Intent(SplashActivity.this, HomeActivity.class);
+                            Intent intent = new Intent(SplashGifActivity.this, HomeActivity.class);
                             startActivity(intent);
                             break;
                         case SIGNED_OUT:
                             //Log.d(TAG, "Do nothing yet");
-                            intent = new Intent(SplashActivity.this, LoginActivity.class);
-                            startActivity(intent);
+                            Intent intent2 = new Intent(SplashGifActivity.this, LoginActivity.class);
+                            startActivity(intent2);
                             break;
                         default:
                             AWSMobileClient.getInstance().signOut();
@@ -107,55 +106,26 @@ public class SplashActivity extends AppCompatActivity {
                 }
             });
         }
-
-        /*else if (AWSMobileClient.getInstance().isSignedIn()){
-
-            // Logined user
-            intent = new Intent(SplashActivity.this, HomeActivity.class);
-            startActivity(intent);
-        } else {
-            // Logouted user
-            intent = new Intent(SplashActivity.this, LoginActivity.class);
-            startActivity(intent);
-        }*/
-
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        _initCognito();
+        setContentView(R.layout.activity_splash_gif);
 
-       /* awsApiPlugin = new AWSApiPlugin();
-        awsCognitoAuthPlugin = new AWSCognitoAuthPlugin();
-        //..
-        try {
-            //Amplify.addPlugin(awsApiPlugin);
-            Amplify.addPlugin(awsCognitoAuthPlugin);
-            Amplify.configure(getApplicationContext());
+        ImageView splash_gif_img = (ImageView) findViewById(R.id.splash_gif_img);
+        Glide.with(this).load(R.drawable.splash_gif).into(splash_gif_img);
 
-            Amplify.Auth.fetchAuthSession(
-                    result -> {
-                        AWSCognitoAuthSession cognitoAuthSession = (AWSCognitoAuthSession) result;
-                        switch(cognitoAuthSession.getIdentityId().getType()) {
-                            case SUCCESS:
-                                Log.i("AuthQuickStart", "IdentityId: " + cognitoAuthSession.getIdentityId().getValue());
-                                // Open Main Activity
-                                intent = new Intent(SplashActivity.this, LoginActivity.class);
-                                startActivity(intent);
-                                break;
-                            case FAILURE:
-                                Log.i("AuthQuickStart", "IdentityId not present because: " + cognitoAuthSession.getIdentityId().getError().toString());
-                                break;
-                        }
-                    },
-                    error -> Log.e("AuthQuickStart", error.toString())
-            );
-            //_initCognito();
-            Log.i("MyAmplifyApp", "Initialized Amplify");
-        } catch (AmplifyException error) {
-            Log.e("MyAmplifyApp", "Could not initialize Amplify", error);
-        }*/
+        Handler handler = new Handler();
+        /* New Handler to start the Menu-Activity
+         * and close this Splash-Screen after some seconds.*/
+        handler.postDelayed(new Runnable(){
+            @Override
+            public void run() {
+                /* Create an Intent that will start the Menu-Activity. */
+                _initCognito();
+                finish();
+            }
+        }, SPLASH_DISPLAY_LENGTH);
     }
 }

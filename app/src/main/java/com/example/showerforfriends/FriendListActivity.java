@@ -136,8 +136,6 @@ public class FriendListActivity extends AppCompatActivity {
                             else*/ if (i == count * 7 + user_name_index) {
                                 name = userData[i].substring(1, userData[i].indexOf("}")-1);
                                 System.out.println("name : " + name);
-                                Friend item = new Friend(name, 0, R.drawable.person1);
-                                friendArrayList.add(item);
                             }
                             /*else if (i == count * 7 + user_display_index) {
                                 showData[index] = userData[i];
@@ -146,6 +144,8 @@ public class FriendListActivity extends AppCompatActivity {
                         if(i % 7 == 6)
                         {
                             count++;
+                            Friend item = new Friend(name, 0, R.drawable.person1);
+                            friendArrayList.add(item);
                             /*addGroupItem(name, 0, 1);*/
                             /*Friend item = new Friend(name, 0, 0);
                             friendArrayList.add(item);*/

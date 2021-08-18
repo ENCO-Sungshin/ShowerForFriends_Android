@@ -46,6 +46,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="5dp"
+                android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                 android:layout_weight="2"
                 android:gravity="center_vertical"
                 android:text="TextView"
@@ -72,6 +73,7 @@
                     android:text="TextView"
                     android:textAlignment="center"
                     android:textColor="@color/app_color_1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -86,6 +88,7 @@
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="@color/app_color_1"
+                    android:fontFamily="@font/dx_womanflower_m_ksc_pc_euc_h"
                     android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
