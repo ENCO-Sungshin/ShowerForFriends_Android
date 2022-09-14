@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ShowerForEarth</string>
+    <string name="goToLogin">로그인 화면</string>
+    <string name="logo">logo</string>
+    <string name="loginimage_bear">loginImage_Bear</string>
+    <string name="login_id">아이디</string>
+    <string name="login_password">비밀번호</string>
+    <string name="loginButton">로그인</string>
+    <string name="kakaologinbutton">kakaoLoginButton</string>
+    <string name="enroll">회원가입</string>
+    <string name="shower_for_friends">SHOWER FOR EARTH</string>
+    <string name="enrollimage_bear">enrollImage_Bear</string>
+    <string name="name_enroll">아이디</string>
+    <string name="nickname_enroll">닉네임</string>
+    <string name="emailID_enroll">이메일</string>
+    <string name="putEmailID_enroll">이메일</string>
+    <string name="password_enroll">비밀번호 설정</string>
+    <string name="putPassword_enroll">비밀번호</string>
+    <string name="checkPassword_enroll">비밀번호 확인</string>
+    <string name="checkUserInfo_btn">이메일 인증</string>
+    <string name="goToTimer">타이머 화면</string>
+    <string name="startShower">샤워 시작하기</string>
+    <string name="beforestartingimg">beforeStartingImg</string>
+    <string name="goToMypage">마이페이지</string>
+    <string name="goToBookmark">상점 화면</string>
+    <string name="goToFriendList">친구 목록 화면</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_timer">타이머</string>
+    <string name="action_statistics">통계</string>
+    <string name="action_rank">랭킹</string>
+    <string name="action_store">상점</string>
+    <string name="action_my">마이</string>
+    <string name="goToHome">홈 화면</string>
+</resources>

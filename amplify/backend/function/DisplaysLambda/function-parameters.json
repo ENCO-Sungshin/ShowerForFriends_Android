@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "storage": {
+      "UsersTable": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ],
+      "DisplaysTable": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

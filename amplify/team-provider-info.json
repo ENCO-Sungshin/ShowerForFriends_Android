@@ -1,0 +1,55 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-showerforfriendsapp-dev-153130-authRole",
+      "UnauthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-153130-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::366488870532:role/amplify-showerforfriendsapp-dev-153130-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+      "UnauthRoleName": "amplify-showerforfriendsapp-dev-153130-unauthRole",
+      "StackName": "amplify-showerforfriendsapp-dev-153130",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:366488870532:stack/amplify-showerforfriendsapp-dev-153130/6eb7e490-fd92-11eb-be4f-0a5f08261eb8",
+      "AmplifyAppId": "d1nff9g094u0d",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-showerforfriendsapp-dev-153130-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "showerforfriendsapp1e7c224f": {}
+      },
+      "function": {
+        "UsersLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/UsersLambda-2f4f7a6b355763507a52-build.zip"
+        },
+        "getDisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/getDisplayLambda-2f70634548414a586371-build.zip"
+        },
+        "DisplayLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/DisplayLambda-37424d73634d69754358-build.zip"
+        },
+        "testLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/testLambda-49504879337177674e41-build.zip"
+        },
+        "UserDataLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/UserDataLambda-79513932314f71396d73-build.zip"
+        },
+        "UserCheckLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/UserCheckLambda-4f3075395242714a4573-build.zip"
+        },
+        "DisplaysLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/DisplaysLambda-7a4f4d6f747245755573-build.zip"
+        },
+        "UsagesLambda": {
+          "deploymentBucketName": "amplify-showerforfriendsapp-dev-153130-deployment",
+          "s3Key": "amplify-builds/UsagesLambda-433234314f5864524c6d-build.zip"
+        }
+      }
+    }
+  }
+}
