@@ -11,6 +11,11 @@
 
 <br/>
 
+## ⛓ 안드로이드 앱 - 서버 통신
+<p align="center"><img src="https://user-images.githubusercontent.com/68148196/187668856-36da7dc5-f665-4086-a9e5-5df2fc1370be.png" width="60%" height="45%" title="arch2" alt="system architecture"></img></p>
+
+<br/>
+
 [👩‍🏫 2021 성신여자대학교 SW 경진대회 발표 자료](https://docs.google.com/presentation/d/1tlNgGfHZHpt77K5_Z1h8Gfy0xOe6TrdA/edit?usp=sharing&ouid=104402475252706033047&rtpof=true&sd=true)
 <br/>
 
