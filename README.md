@@ -11,7 +11,7 @@
 
 <br/>
 
-## ⛓ 안드로이드 앱 - 서버 통신
+## ⛓ 안드로이드 앱 - 중앙 서버 통신
 <p align="center"><img src="https://user-images.githubusercontent.com/68148196/187668856-36da7dc5-f665-4086-a9e5-5df2fc1370be.png" width="60%" height="45%" title="arch2" alt="system architecture"></img></p>
 
 <br/>
