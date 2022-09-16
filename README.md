@@ -3,11 +3,11 @@
 <br/>
 <br/>
 ## 📽️ 전체 시스템 요약도
-<p align="center"><img src="https://user-images.githubusercontent.com/68148196/190562755-92c56fbc-e09d-4f61-abb3-c45cf322ce96.png" width="800" height="480"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/68148196/190562755-92c56fbc-e09d-4f61-abb3-c45cf322ce96.png"  width="60%" height="45%"/></p>
 <br/>
 
 ## 📱 안드로이드 앱 요약도
-<p align="center"><img src="https://user-images.githubusercontent.com/68148196/190563184-f119c062-6b6f-4c1f-be46-9f937fa5279c.png" width="500" height="500"/></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/68148196/190563184-f119c062-6b6f-4c1f-be46-9f937fa5279c.png"  width="60%" height="60%"/></p>
 
 <br/>
 
