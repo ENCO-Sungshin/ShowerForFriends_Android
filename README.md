@@ -10,8 +10,14 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/68148196/190563184-f119c062-6b6f-4c1f-be46-9f937fa5279c.png" width="500" height="500"/></p>
 
 <br/>
-[👩‍🏫 2021 성신여자대학교 SW 경진대회 발표 자료](https://docs.google.com/presentation/d/1tlNgGfHZHpt77K5_Z1h8Gfy0xOe6TrdA/edit?usp=sharing&ouid=104402475252706033047&rtpof=true&sd=true)<br/>
-[🌩️ 중앙 서버 repository](https://github.com/ENCO-Sungshin/ShowerForFriends_AWS_Resources)<br/>
-[🖥️ 라즈베리파이 repository](https://github.com/ENCO-Sungshin/ShowerForFriends_RaspberryPi)<br/>
+
+[👩‍🏫 2021 성신여자대학교 SW 경진대회 발표 자료](https://docs.google.com/presentation/d/1tlNgGfHZHpt77K5_Z1h8Gfy0xOe6TrdA/edit?usp=sharing&ouid=104402475252706033047&rtpof=true&sd=true)
+<br/>
+
+[🌩️ 중앙 서버 repository](https://github.com/ENCO-Sungshin/ShowerForFriends_AWS_Resources)
+<br/>
+
+[🖥️ 라즈베리파이 repository](https://github.com/ENCO-Sungshin/ShowerForFriends_RaspberryPi)
+<br/>
 
 
